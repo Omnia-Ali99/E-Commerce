@@ -10,7 +10,7 @@ class AuthRepository
     public function login($credentials,  $guard, $remember = false)
     {
 
-        return Auth::guard('admin')->attempt($credentials,  $guard, $remember);
+        return Auth::guard($guard)->attempt($credentials,  $guard, $remember);
     }
     public function logout($guard)
     {
