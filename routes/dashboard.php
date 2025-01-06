@@ -17,8 +17,8 @@ Route::group(
 
     ##################################### Auth ##################################################
     Route::get('login', [AuthController::class, 'ShowLoginForm'])->name(name: 'login');
-    Route::post('login', [AuthController::class, 'Login'])->name(name: 'login.post');
-    Route::post('logout', [AuthController::class, 'Logout'])->name(name: 'logout');
+    Route::post('login', [AuthController::class, 'login'])->name(name: 'login.post');
+    Route::post('logout', [AuthController::class, 'logout'])->name(name: 'logout');
 
     ################################# Reset Password #############################
     Route::group(['prefix' => 'password', 'as' => 'password.'], function () {
