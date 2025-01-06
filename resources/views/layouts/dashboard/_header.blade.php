@@ -165,7 +165,11 @@
                 <a class="dropdown-item" href="#"><i class="ft-mail"></i> My Inbox</a>
                 <a class="dropdown-item" href="#"><i class="ft-check-square"></i> Task</a>
                 <a class="dropdown-item" href="#"><i class="ft-message-square"></i> Chats</a>
-                <div class="dropdown-divider"></div><a class="dropdown-item" href="#"><i class="ft-power"></i> Logout</a>
+                <div class="dropdown-divider"></div>
+                <form action="{{route('dashboard.logout')}}" method="POST">
+                  @csrf
+                  <button type="submit" class="dropdown-item" href="#"><i class="ft-power"></i> {{__('auth.logout')}}</button>
+                </form>
               </div>
             </li>
 
@@ -173,8 +177,9 @@
 
             <li class="dropdown dropdown-language nav-item">
               <a class="dropdown-toggle nav-link" id="dropdown-flag" href="#" data-toggle="dropdown"
-              aria-haspopup="true" aria-expanded="false"><i class="flag-icon flag-icon-gb">
-                </i><span class="selected-language"></span></a>
+              aria-haspopup="true" aria-expanded="false">
+              <i class="flag-icon @if(config::get('app.locale') =='ar') flag-icon-eg @else flag-icon-gb  @endif"></i> 
+              <span class="selected-language"></span></a>
                 <div class="dropdown-menu" aria-labelledby="dropdown-flag">
               @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
                       <a class="dropdown-item" rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">

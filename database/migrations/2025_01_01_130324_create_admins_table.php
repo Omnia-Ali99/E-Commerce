@@ -20,7 +20,7 @@ return new class extends Migration
             $table->boolean('status')->default(true);
 
 
-            $table->foreignId('role_id')->constrained('roles')->onDelete('cascade');
+            $table->foreignId('role_id')->nullable()->constrained('roles')->onDelete('cascade');
             $table->softDeletes();
             $table->timestamps();
         });
