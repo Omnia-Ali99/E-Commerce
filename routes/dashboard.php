@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Dashboard\RoleController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Dashboard\WelcomeController;
 use App\Http\Controllers\Dashboard\Auth\AuthController;
@@ -16,7 +17,7 @@ Route::group(
   function () {
 
     ##################################### Auth ##################################################
-    Route::get('login', [AuthController::class, 'ShowLoginForm'])->name(name: 'login');
+    Route::get('login', [AuthController::class, 'ShowLoginForm'])->name('login');
     Route::post('login', [AuthController::class, 'login'])->name(name: 'login.post');
     Route::post('logout', [AuthController::class, 'logout'])->name(name: 'logout');
 
@@ -40,10 +41,11 @@ Route::group(
 
       ##################################### Welcome Routes ##################################################
       Route::get('/welcome', [WelcomeController::class, 'index'])->name('welcome');
+
+      ##################################### Roles Routes ##################################################
+      Route::group(['middleware' => 'can:roles'], function () {
+        Route::resource('roles', RoleController::class);
+      });
     });
   }
 );
-route::get('email', function () {
-
-  return view('dashboard.auth.password.email');
-});

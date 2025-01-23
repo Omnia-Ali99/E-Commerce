@@ -194,6 +194,8 @@ return [
         'role.ar'=>'Role Name With Arbic',
         'name.en'=>'Name With English',
         'name.ar'=>'Name With Arbic',
+        'permessions'=>'permessions',
+
 
     ],
 
