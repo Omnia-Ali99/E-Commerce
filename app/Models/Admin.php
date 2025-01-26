@@ -3,6 +3,8 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+
+use App\Enums\AdminStatus;
 use App\Models\Role;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -23,6 +25,7 @@ class Admin extends Authenticatable
         'email',
         'password',
         'role_id',
+        'status'
     ];
 
     /**
@@ -50,6 +53,9 @@ class Admin extends Authenticatable
     public function role()
     {
         return $this->belongsTo(Role::class , 'role_id');
+    }
+    public function getStatusAttribute($value){
+       return $value == 1 ? AdminStatus::Active->value : AdminStatus::NotActive->value;
     }
 
     public function hasAccess($config_permession)  // products , users , admins

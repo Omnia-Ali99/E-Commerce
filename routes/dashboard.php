@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Dashboard\AdminController;
 use App\Http\Controllers\Dashboard\RoleController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Dashboard\WelcomeController;
@@ -43,9 +44,21 @@ Route::group(
       Route::get('/welcome', [WelcomeController::class, 'index'])->name('welcome');
 
       ##################################### Roles Routes ##################################################
+
       Route::group(['middleware' => 'can:roles'], function () {
         Route::resource('roles', RoleController::class);
       });
+
+      ##################################### End Roles  ##################################################
+
+        ##################################### Admins Routes ##################################################
+      
+        Route::group(['middleware' => 'can:admins'], function () {
+          Route::resource('admins', AdminController::class);
+          Route::get('admins/{id}/status',[AdminController::class,'changeStatus'])->name('admins.status');
+        });
+        ##################################### End Admins  ##################################################
+
     });
   }
 );

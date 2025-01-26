@@ -147,4 +147,7 @@ return [
     'site_copyright' => 'حقوق النشر',
 
 
+    'edit_admin' => 'تعديل المسؤل',
+    'create_admin' => 'اضافة مسؤل'
+
 ];

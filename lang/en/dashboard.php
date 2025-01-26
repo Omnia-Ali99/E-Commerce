@@ -148,6 +148,8 @@ return [
      'promotion_video_url'=>'Promotion Video Url',
      'site_copyright'=>'Site Copyright',
 
+     'edit_admin' => 'edit admin',
+     'create_admin' =>'Create admin'
 
 
 

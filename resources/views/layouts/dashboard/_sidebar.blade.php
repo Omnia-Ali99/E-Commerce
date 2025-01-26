@@ -18,17 +18,25 @@
               
               <li><a class="menu-item" href="{{route('dashboard.roles.index')}}" data-i18n="nav.templates.vert.classic_menu">{{__('dashboard.roles')}}</a>
             </li>
-            <li><a class="menu-item" href="#" data-i18n="nav.templates.horz.main">Horizontal</a>
-              <ul class="menu-content">
-                <li><a class="menu-item" href="../horizontal-menu-template" data-i18n="nav.templates.horz.classic">Classic</a>
-                </li>
-                <li><a class="menu-item" href="../horizontal-menu-template-nav" data-i18n="nav.templates.horz.top_icon">Full Width</a>
-                </li>
-              </ul>
-            </li>
           </ul>
         </li>
         @endcan
+        @can('admins')
+        <li class=" nav-item"><a href="#"><i class="la la-user-secret"></i>
+          <span class="menu-title" data-i18n="nav.templates.main">{{ __('dashboard.admins') }}</span>
+          {{-- <span class="badge badge badge-info badge-pill float-right mr-2">{{ $admins_count }}</span> --}}
+        </a>
+            <ul class="menu-content">
+                <li>
+                    <a class="menu-item" href="{{ route('dashboard.admins.create') }}" data-i18n="">{{ __('dashboard.create_admin') }} </a>
+                </li>
+                <li>
+                    <a class="menu-item" href="{{ route('dashboard.admins.index') }}" data-i18n="">{{ __('dashboard.admins') }}</a>
+                </li>
+            </ul>
+        </li>
+        @endcan
+        
         <li class=" navigation-header">
           <span data-i18n="nav.category.layouts">Layouts</span><i class="la la-ellipsis-h ft-minus" data-toggle="tooltip"
           data-placement="right" data-original-title="Layouts"></i>
