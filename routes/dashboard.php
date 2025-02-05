@@ -1,8 +1,9 @@
 <?php
 
-use App\Http\Controllers\Dashboard\AdminController;
-use App\Http\Controllers\Dashboard\RoleController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Dashboard\RoleController;
+use App\Http\Controllers\Dashboard\AdminController;
+use App\Http\Controllers\Dashboard\WorldController;
 use App\Http\Controllers\Dashboard\WelcomeController;
 use App\Http\Controllers\Dashboard\Auth\AuthController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -51,14 +52,31 @@ Route::group(
 
       ##################################### End Roles  ##################################################
 
-        ##################################### Admins Routes ##################################################
-      
-        Route::group(['middleware' => 'can:admins'], function () {
-          Route::resource('admins', AdminController::class);
-          Route::get('admins/{id}/status',[AdminController::class,'changeStatus'])->name('admins.status');
-        });
-        ##################################### End Admins  ##################################################
+      ##################################### Admins Routes ##################################################
 
+      Route::group(['middleware' => 'can:admins'], function () {
+        Route::resource('admins', AdminController::class);
+        Route::get('admins/{id}/status', [AdminController::class, 'changeStatus'])->name('admins.status');
+      });
+      ##################################### End Admins  ##################################################
+
+      ############################ Shipping & Countries ##########################
+      Route::group(['middleware' => 'can:global_shipping'], function () {
+        Route::controller(WorldController::class)->group(function () {
+
+          Route::prefix('countries')->name('countries.')->group(function () {
+            Route::get('/',                              'getAllCountries')->name('index');
+            Route::get('/{country_id}/governorates',     'getGovsByCountry')->name('governorates.index');
+            Route::get('/change-status/{country_id}',    'changeStatus')->name('status');
+          });
+
+          Route::prefix('governorates')->name('governorates.')->group(function () {
+            Route::get('/change-status/{gov_id}',       'changeGovStatus')->name('status');
+            Route::put('/shipping-price',               'changeShippingPrice')->name('shipping-price');
+          });
+        });
+      });
+      ############################### End Shipping ###############################
     });
   }
 );
