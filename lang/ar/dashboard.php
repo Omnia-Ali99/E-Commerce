@@ -60,6 +60,7 @@ return [
     'countries_table' => 'جدول الدول',
     'admins_table' => 'جدول المشرفين',
     'roles_table' => 'جدول الادوار',
+    'brands_table' => 'جدول العلامات التجاريه',
     'select_shipping_price' => 'اختار سعر الشحن',
     'change_price' => ' تغير السعر',
 
@@ -68,8 +69,11 @@ return [
     'category_create' => 'انشاء قسم ',
     'brand_create' => 'انشاء علامه تجاريه ',
     'table_yajra_paragraph' => 'جدول ديناميكي يعرض البيانات من قاعدة البيانات مع ميزات مثل البحث، الفرز، إظهار وإخفاء الأعمدة، وخيارات لتصدير البيانات إلى Excel أو طباعتها أو نسخها.',
-
+    'categories_table' =>'جدول الاقسام',
     'are_you_sure' => 'هل انت متاكد؟',
+    'You_will_not_be_able_to_revert_this'=>'لن تتمكن من التراجع عن هذا !',
+    'delete_it'=>'نعم، احذفه!',
+    'no_cancel'=>'لا، إلغاء!',
     'name_ar' => 'الاسم بالعربية',
     'name_en' => 'الاسم بالانجليزية',
     'image' => 'الصورة',

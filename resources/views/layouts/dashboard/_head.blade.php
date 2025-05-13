@@ -41,3 +41,28 @@ rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="{{asset('assets/dashboard')}}/css/pages/dashboard-ecommerce.css">
 {{-- <link rel="stylesheet" type="text/css" href="{{asset('assets/dashboard')}}/css/style.css"> --}}
 @endif
+
+
+{{-- Datatables CDN --}}
+<link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.bootstrap5.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/buttons/3.2.0/css/buttons.bootstrap5.min.css">
+
+{{-- Responsive CDN --}}
+<link rel="stylesheet" href="https://cdn.datatables.net/responsive/3.0.3/css/responsive.dataTables.min.css">
+
+{{-- Col And Raw Reorder Datatables CDN --}}
+<link rel="stylesheet" href="https://cdn.datatables.net/colreorder/2.0.4/css/colReorder.dataTables.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/rowreorder/1.5.0/css/rowReorder.dataTables.min.css">
+
+{{--  Fixed Header Datatables --}}
+<link rel="stylesheet" href="https://cdn.datatables.net/fixedheader/4.0.1/css/fixedHeader.bootstrap5.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/5.0.4/css/fixedColumns.bootstrap5.min.css">
+
+{{-- Scroller Datatables CDN --}}
+<link rel="stylesheet" href="https://cdn.datatables.net/scroller/2.4.3/css/scroller.dataTables.min.css">
+
+{{-- file input --}}
+<link rel="stylesheet" href="{{ asset('vendor/file-input/css/fileinput.min.css') }}">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" crossorigin="anonymous">
+
+{{-- end file input --}}

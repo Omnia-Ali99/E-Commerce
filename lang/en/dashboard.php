@@ -73,8 +73,12 @@ return [
     'category_create'=>'Create Category',
     'brand_create'=>'Create Brand',
     'table_yajra_paragraph'=>'A dynamic table that displays data from the database with features like search, sorting, column visibility toggle, and options to export to Excel, print, or copy data.',
+    'categories_table' =>'Categories Table',
 
    'are_you_sure'=>' Are You Sure ?',
+   'You_will_not_be_able_to_revert_this'=> "You won't be able to revert this!",
+   'delete_it'=>'Yes, delete it!',
+   'no_cancel'=>'No, cancel!',
    'name_ar'=>'Name Arabic',
    'name_en'=>'Name English',
     'select_Parent'=>'Select Parent Category',
@@ -112,6 +116,7 @@ return [
      'answer_en'=>'Answer English',
      'faqs_table'=>'Faqs Table',
      'system'=>'System',
+    'brands_table' => 'brands table',
 
      'settings'=>'Settings ',
      'edit_settings'=>'Edit Settings',

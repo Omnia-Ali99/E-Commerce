@@ -9,6 +9,8 @@ use App\Http\Controllers\Dashboard\Auth\AuthController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use App\Http\Controllers\Dashboard\Auth\ResetPasswordController;
 use App\Http\Controllers\Dashboard\Auth\ForgotPasswordController;
+use App\Http\Controllers\Dashboard\BrandController;
+use App\Http\Controllers\Dashboard\CategoryController;
 
 Route::group(
   [
@@ -77,6 +79,24 @@ Route::group(
         });
       });
       ############################### End Shipping ###############################
+
+      ##################################### Categories Routes ##################################################
+      Route::group(['middleware' => 'can:categories'], function () {
+        Route::resource('categories', CategoryController::class)->except('show');
+        Route::get('categories-all',[CategoryController::class,'getAll'])
+        ->name('categories.all');
+      });
+      ##################################### End Categories  ##################################################
+
+      ##################################### Brands Routes ##################################################
+      Route::group(['middleware' => 'can:brands'], function () {
+        Route::resource('brands', BrandController::class);
+        Route::get('brands-all',[BrandController::class,'getAll'])
+        ->name('brands.all');
+    
+      });
+      ##################################### End Brands  ##################################################
+
     });
   }
 );

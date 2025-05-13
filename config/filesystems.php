@@ -45,6 +45,39 @@ return [
             'throw' => false,
         ],
 
+        'brands' => [
+            'driver' => 'local',
+            'root' => public_path('/uploads/brands'),
+            'url' => env('APP_URL'),
+            'visibility' => 'public',
+            'throw' => false,
+        ],
+
+        'settings' => [
+            'driver' => 'local',
+            'root' => public_path('/uploads/settings'),
+            'url' => env('APP_URL'),
+            'visibility' => 'public',
+            'throw' => false,
+        ],
+
+        'products' => [
+            'driver' => 'local',
+            'root' => public_path('/uploads/products'),
+            'url' => env('APP_URL'),
+            'visibility' => 'public',
+            'throw' => false,
+        ],
+        
+        'users' => [
+            'driver' => 'local',
+            'root' => public_path('/uploads/users'),
+            'url' => env('APP_URL').'/uploads/users',
+            'visibility' => 'public',
+            'throw' => false,
+        ],
+
+
         's3' => [
             'driver' => 's3',
             'key' => env('AWS_ACCESS_KEY_ID'),
