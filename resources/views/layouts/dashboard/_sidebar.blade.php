@@ -59,6 +59,17 @@
             </ul>
         </li>
         @endcan
+             @can('coupons')
+            <li class=" nav-item"><a href="{{ route('dashboard.coupons.index') }}""><i class="la la-500px"></i><span class="menu-title" data-i18n="nav.dash.main">{{ __('dashboard.coupons') }}</span><span class="badge badge badge-info badge-pill float-right mr-2">{{ $coupons_count }}</span></a>
+                <ul class="menu-content">
+                    <li class="active"><a class="menu-item" href="{{ route('dashboard.coupons.index') }}" data-i18n="nav.dash.ecommerce">{{ __('dashboard.coupons') }}</a>
+                    </li>
+                    {{-- <li><a class="menu-item" href="{{ route('dashboard.brands.create') }}" data-i18n="nav.dash.crypto">{{ __('dashboard.coupon_create') }}</a>
+            </li> --}}
+
+        </ul>
+        </li>
+        @endcan
         
       
 

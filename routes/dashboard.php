@@ -11,6 +11,7 @@ use App\Http\Controllers\Dashboard\Auth\ResetPasswordController;
 use App\Http\Controllers\Dashboard\Auth\ForgotPasswordController;
 use App\Http\Controllers\Dashboard\BrandController;
 use App\Http\Controllers\Dashboard\CategoryController;
+use App\Http\Controllers\Dashboard\CouponController;
 
 Route::group(
   [
@@ -96,6 +97,15 @@ Route::group(
     
       });
       ##################################### End Brands  ##################################################
+
+      ##################################### Coupons Routes ##################################################
+      Route::group(['middleware' => 'can:coupons'], function () {
+        Route::resource('coupons', CouponController::class);
+        Route::get('coupons-all',[CouponController::class,'getAll'])
+        ->name('coupons.all');
+    
+      });
+      ##################################### End Coupons  ##################################################
 
     });
   }
