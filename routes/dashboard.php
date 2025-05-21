@@ -12,6 +12,7 @@ use App\Http\Controllers\Dashboard\Auth\ForgotPasswordController;
 use App\Http\Controllers\Dashboard\BrandController;
 use App\Http\Controllers\Dashboard\CategoryController;
 use App\Http\Controllers\Dashboard\CouponController;
+use App\Http\Controllers\Dashboard\FaqController;
 
 Route::group(
   [
@@ -84,28 +85,34 @@ Route::group(
       ##################################### Categories Routes ##################################################
       Route::group(['middleware' => 'can:categories'], function () {
         Route::resource('categories', CategoryController::class)->except('show');
-        Route::get('categories-all',[CategoryController::class,'getAll'])
-        ->name('categories.all');
+        Route::get('categories-all', [CategoryController::class, 'getAll'])
+          ->name('categories.all');
       });
       ##################################### End Categories  ##################################################
 
       ##################################### Brands Routes ##################################################
       Route::group(['middleware' => 'can:brands'], function () {
         Route::resource('brands', BrandController::class);
-        Route::get('brands-all',[BrandController::class,'getAll'])
-        ->name('brands.all');
-    
+        Route::get('brands-all', [BrandController::class, 'getAll'])
+          ->name('brands.all');
       });
       ##################################### End Brands  ##################################################
 
       ##################################### Coupons Routes ##################################################
       Route::group(['middleware' => 'can:coupons'], function () {
-        Route::resource('coupons', CouponController::class);
-        Route::get('coupons-all',[CouponController::class,'getAll'])
-        ->name('coupons.all');
-    
+        Route::resource('coupons', CouponController::class)->except('show');
+        Route::get('coupons-all', [CouponController::class, 'getAll'])
+          ->name('coupons.all');
       });
       ##################################### End Coupons  ##################################################
+
+      ##################################### Faqs Routes ##################################################
+      Route::group(['middleware' => 'can:faqs'], function () {
+        Route::resource('faqs', FaqController::class);
+        Route::get('faqs-all', [FaqController::class, 'getAll'])
+          ->name('faqs.all');
+      });
+      ##################################### End Faqs  ##################################################
 
     });
   }
