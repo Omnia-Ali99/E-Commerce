@@ -1,18 +1,19 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Dashboard\FaqController;
 use App\Http\Controllers\Dashboard\RoleController;
 use App\Http\Controllers\Dashboard\AdminController;
+use App\Http\Controllers\Dashboard\BrandController;
 use App\Http\Controllers\Dashboard\WorldController;
+use App\Http\Controllers\Dashboard\CouponController;
+use App\Http\Controllers\Dashboard\SettingController;
 use App\Http\Controllers\Dashboard\WelcomeController;
+use App\Http\Controllers\Dashboard\CategoryController;
 use App\Http\Controllers\Dashboard\Auth\AuthController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use App\Http\Controllers\Dashboard\Auth\ResetPasswordController;
 use App\Http\Controllers\Dashboard\Auth\ForgotPasswordController;
-use App\Http\Controllers\Dashboard\BrandController;
-use App\Http\Controllers\Dashboard\CategoryController;
-use App\Http\Controllers\Dashboard\CouponController;
-use App\Http\Controllers\Dashboard\FaqController;
 
 Route::group(
   [
@@ -113,6 +114,14 @@ Route::group(
           ->name('faqs.all');
       });
       ##################################### End Faqs  ##################################################
+
+      ############################### Settings Routes ###############################
+      Route::group(['middleware' => 'can:settings', 'as' => 'settings.'], function () {
+        Route::get('settings',      [SettingController::class, 'index'])->name('index');
+        Route::put('settings/{id}', [SettingController::class, 'update'])->name('update');
+      });
+      ############################### End Settings ##################################
+
 
     });
   }

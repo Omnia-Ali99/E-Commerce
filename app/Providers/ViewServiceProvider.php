@@ -2,11 +2,12 @@
 
 namespace App\Providers;
 
+use App\Models\Faq;
 use App\Models\Admin;
 use App\Models\Brand;
 use App\Models\Coupon;
+use App\Models\Setting;
 use App\Models\Category;
-use App\Models\Faq;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\ServiceProvider;
 
@@ -64,5 +65,51 @@ class ViewServiceProvider extends ServiceProvider
 
             ]);
         });
+
+        // get Setting And Share
+        $setting = $this->firstOrCreateSetting();
+
+        view()->share([
+            'setting' => $setting,
+        ]);
+    }
+    public function firstOrCreateSetting()
+    {
+        $getSetting = Setting::firstOr(function () {
+            return Setting::create([
+                'site_name' => [
+                    'ar' => 'متجر الكتروني',
+                    'en' => 'E-Commerce',
+                ],
+                'site_desc' => [
+                    'en' => 'This is E-Commerce website',
+                    'ar' => 'هذا موقع متجر الكتروني ',
+                ],
+                'site_address' => [
+                    'en' => 'Egypt , Alex , Mandara',
+                    'ar' => 'مصر , الاسكندريه ,  المندره',
+                ],
+                'site_phone' => '01222220000',
+                'site_email' => 'e-commerce@gmail.com',
+                'email_support' => 'e-commerceSupport@gmail.com',
+
+                // socail
+                'facebook_url' => 'https://www.facebook.com/',
+                'twitter_url' => 'https://www.twitter.com/',
+                'youtube_url' => 'https://www.youtube.com/',
+
+                'logo' => 'logo.png',
+                'favicon' => 'logo.png',
+                'site_copyright' => '©2025 Your E-commerce Name. All rights reserved.',
+
+                'meta_description' => [
+                    'en' => '23 of PARAGE is equality of condition, blood, or dignity; specifically',
+                    'ar' => '23 of PARAGE is equality of condition, blood, or dignity; specifically ',
+                ],
+                'promotion_video_url' => 'https://www.youtube.com/embed/SsE5U7ta9Lw?rel=0&amp;controls=0&amp;showinfo=0',
+
+            ]);
+        });
+        return $getSetting;
     }
 }
