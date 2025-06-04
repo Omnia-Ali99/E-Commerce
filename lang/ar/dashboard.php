@@ -152,6 +152,31 @@ return [
 
 
     'edit_admin' => 'تعديل المسؤل',
-    'create_admin' => 'اضافة مسؤل'
+    'create_admin' => 'اضافة مسؤل',
+
+         //  attributes
+    'attributes'=>'السمات',
+    'attribute_name'=>'اسم السمة',
+    'attribute_values'=>' قيم السمة',
+    'create_attribute'=>'انشاء سمة',
+    'attribute_name_ar'=>'اسم السمة عربي',
+    'attribute_name_en'=>'اسم السمة انجليزي',
+    'attribute_value_ar'=>'قيمة السمة عربي',
+    'attribute_value_en'=>'قيمة السمة انجليزي',
+    'add_more'=>'اضف اكثر',
+    'product_name'=>'اسم المنتج',
+    'images'=>'صور المنتج',
+    'show_product'=>'اظهار المنتج',
+    'sku'=>'SKU',
+    'products_show'=>'Products Show',
+
+    'users'=>'المستخدمين',
+    'num_of_orders'=>'عدد الطلبات',
+    'email_verified_at'=>'تاريخ التحقق من البريد الالكتروني',
+
+    'contacts'=>'اداره التواصل',
+
+
+
 
 ];

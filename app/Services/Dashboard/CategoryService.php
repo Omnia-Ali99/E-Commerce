@@ -16,6 +16,11 @@ class CategoryService
     {
         $this->categoryRepository = $categoryRepository;
     }
+      public function getCategories()
+    {
+        return $this->categoryRepository->getAll();
+    }
+
    public function getCategoriesForDatatable()
     {
         $categories = $this->categoryRepository->getAll();

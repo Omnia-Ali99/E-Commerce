@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Dashboard\ProductController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Dashboard\FaqController;
 use App\Http\Controllers\Dashboard\RoleController;
@@ -10,6 +11,7 @@ use App\Http\Controllers\Dashboard\CouponController;
 use App\Http\Controllers\Dashboard\SettingController;
 use App\Http\Controllers\Dashboard\WelcomeController;
 use App\Http\Controllers\Dashboard\CategoryController;
+use App\Http\Controllers\Dashboard\AttributeController;
 use App\Http\Controllers\Dashboard\Auth\AuthController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use App\Http\Controllers\Dashboard\Auth\ResetPasswordController;
@@ -121,6 +123,29 @@ Route::group(
         Route::put('settings/{id}', [SettingController::class, 'update'])->name('update');
       });
       ############################### End Settings ##################################
+
+      ############################### Attributes Routes #############################
+      Route::group(['middleware' => 'can:attributes'], function () {
+        Route::resource('attributes', AttributeController::class);
+        Route::get('attributes-all', [AttributeController::class, 'getAll'])
+          ->name('attributes.all');
+      });
+      ############################### End attributes ################################
+
+      ############################### Products Routes ###############################
+      Route::group(['middleware' => 'can:products'], function () {
+        Route::resource('products', ProductController::class);
+        Route::post('products/status', [ProductController::class, 'changeStatus'])
+          ->name('products.status');
+        Route::get('products-all', [ProductController::class, 'getAll'])
+          ->name('products.all');
+
+        //Variants
+        Route::get('products/variants/{variant_id}', [ProductController::class, 'deleteVariant'])
+          ->name('products.variants.delete');
+      });
+      ############################### End products ################################
+
 
 
     });

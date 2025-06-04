@@ -154,8 +154,66 @@ return [
      'site_copyright'=>'Site Copyright',
 
      'edit_admin' => 'edit admin',
-     'create_admin' =>'Create admin'
+     'create_admin' =>'Create admin',
 
+
+
+        //  attributes
+    'attributes'=>'Attributes',
+    'attribute_name'=>'Attribute Name',
+    'attribute_values'=>'Attribute Values',
+    'create_attribute'=>'Create Attribute',
+    'attribute_name_ar'=>'Attribute Name Arabic',
+    'attribute_name_en'=>'Attribute Name English',
+    'attribute_value_ar'=>'Attribute Value Arabic',
+    'attribute_value_en'=>'Attribute Value English',
+    'add_more'=>'Add More',
+
+    // products
+    'product_name_en'=>'Product Name Enlish',
+    'product_name_ar'=>'Product Name Arabic',
+    'small_description_ar'=>'Small Description Arabic',
+    'small_description_en'=>'Small Description English',
+    'description_en'=>'Description English',
+    'description_ar'=>'Description Arabic',
+    'category'=>'Category',
+    'brand'=>'Brand',
+    'product_sku'=>'Product SKU',
+    'has_variants'=>'Has Variants',
+    'price'=>'Price',
+    'manage_stock'=>'Manage Stock',
+    'quantity'=>'Quantity',
+    'has_discount'=>'Has Discount',
+    'start_discount'=>'Start Discount',
+    'end_discount'=>'End Discount',
+    'product_images'=>'Product Images',
+    'select_brand'=>'Select Brand',
+    'select_category'=>'Select Category',
+    'available_for'=>'Available For',
+    'product_tags'=>'Product Tags',
+    'next'=>'Next',
+    'finish'=>'Finish',
+    'confirm'=>'Confirm',
+    'product_variants'=>'Product Variants',
+    'basic_information'=>'Basic Information',
+    'confirmation'=>'Confirmation',
+    'create_product'=>'Create Product',
+    'product_created_successfully'=>'Product Created Successfully',
+    'product_updated_successfully'=>'Product Updated Successfully',
+    'product_deleted_successfully'=>'Product Deleted Successfully',
+    'no_discount'=>'No Discount',
+    'product_name'=>'Product Name',
+    'images'=>'Product Images',
+    'show_product'=>'Show Product',
+    'sku'=>'SKU',
+    'yes_variants'=>'Yes Variants',
+    'no_variants'=>'No Variants',
+    'products_show'=>'Products Show',
+
+    'users'=>'Users',
+    'num_of_orders'=>'Num Of Orders',
+    'email_verified_at'=>'Email Verified At',
+    'contacts'=>'Email Application',
 
 
 
