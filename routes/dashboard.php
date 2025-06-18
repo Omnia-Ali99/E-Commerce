@@ -2,15 +2,18 @@
 
 use App\Http\Controllers\Dashboard\ProductController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Dashboard\FaqController;
-use App\Http\Controllers\Dashboard\RoleController;
-use App\Http\Controllers\Dashboard\AdminController;
-use App\Http\Controllers\Dashboard\BrandController;
-use App\Http\Controllers\Dashboard\WorldController;
-use App\Http\Controllers\Dashboard\CouponController;
-use App\Http\Controllers\Dashboard\SettingController;
-use App\Http\Controllers\Dashboard\WelcomeController;
-use App\Http\Controllers\Dashboard\CategoryController;
+use App\Http\Controllers\Dashboard\{
+  FaqController,
+  RoleController,
+  AdminController,
+  BrandController,
+  WorldController,
+  CouponController,
+  SettingController,
+  WelcomeController,
+  CategoryController,
+};
+
 use App\Http\Controllers\Dashboard\AttributeController;
 use App\Http\Controllers\Dashboard\Auth\AuthController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
