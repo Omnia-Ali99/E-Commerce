@@ -49,18 +49,18 @@ class CountrySeeder extends Seeder
                 'name' => ['en' => 'Morocco', 'ar' => 'المغرب'],
                 'flag_code' => 'ma',
             ],
-            [
-                'id' => 6,
-                'phone_code' => '962',
-                'name' => ['en' => 'Jordan', 'ar' => 'الأردن'],
-                'flag_code' => 'jo',
-            ],
-            [
-                'id' => 7,
-                'phone_code' => '961',
-                'name' => ['en' => 'Lebanon', 'ar' => 'لبنان'],
-                'flag_code' => 'lb',
-            ],
+            // [
+            //     'id' => 6,
+            //     'phone_code' => '962',
+            //     'name' => ['en' => 'Jordan', 'ar' => 'الأردن'],
+            //     'flag_code' => 'jo',
+            // ],
+            // [
+            //     'id' => 7,
+            //     'phone_code' => '961',
+            //     'name' => ['en' => 'Lebanon', 'ar' => 'لبنان'],
+            //     'flag_code' => 'lb',
+            // ],
         ];
 
         // Seed countries

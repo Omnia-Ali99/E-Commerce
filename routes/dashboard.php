@@ -1,5 +1,5 @@
 <?php
-
+use Livewire\Livewire;
 use App\Http\Controllers\Dashboard\ProductController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Dashboard\{
@@ -12,6 +12,7 @@ use App\Http\Controllers\Dashboard\{
   SettingController,
   WelcomeController,
   CategoryController,
+  UserController,
 };
 
 use App\Http\Controllers\Dashboard\AttributeController;
@@ -27,6 +28,7 @@ Route::group(
     'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
   ],
   function () {
+    
 
     ##################################### Auth ##################################################
     Route::get('login', [AuthController::class, 'ShowLoginForm'])->name('login');
@@ -149,8 +151,21 @@ Route::group(
       });
       ############################### End products ################################
 
+      ############################### users Routes #############################
+      Route::group(['middleware' => 'can:users'], function () {
+        Route::resource('users', UserController::class);
+        Route::post('users/status', [UserController::class, 'changeStatus'])
+          ->name('users.status');
+        Route::get('users-all', [UserController::class, 'getAll'])
+          ->name('users.all');
+      });
+      ############################### End users ################################
 
 
     });
+
+     Livewire::setUpdateRoute(function ($handle) {
+            return Route::post('/livewire/update', $handle);
+        });
   }
 );

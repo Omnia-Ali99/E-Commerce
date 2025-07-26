@@ -11,19 +11,20 @@ use App\Http\Requests\LoginAdminRequest;
 use Illuminate\Routing\Controllers\Middleware;
 use Illuminate\Routing\Controllers\HasMiddleware;
 
-class AuthController extends Controller implements HasMiddleware
+class AuthController extends Controller //implements HasMiddleware
 {
     protected $authService;
     public function __construct(AuthService $authService)
     {
         $this->authService = $authService;
+        $this->middleware('guest:admin')->except('logout');
     }
-    public static function middleware()
-    {
-        return [
-            new Middleware(middleware: 'guest:admin', except: ['logout']),
-        ];
-    }
+    // public static function middleware()
+    // {
+    //     return [
+    //         new Middleware(middleware: 'guest:admin', except: ['logout']),
+    //     ];
+    // }
     public function ShowLoginForm()
     {
         return view('dashboard.auth.login');
