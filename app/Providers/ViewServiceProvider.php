@@ -6,6 +6,7 @@ use App\Models\Faq;
 use App\Models\Admin;
 use App\Models\Brand;
 use App\Models\Coupon;
+use App\Models\Contact;
 use App\Models\Setting;
 use App\Models\Category;
 use Illuminate\Support\Facades\Cache;
@@ -53,6 +54,11 @@ class ViewServiceProvider extends ServiceProvider
                     return Admin::count();
                 });
             }
+              if (!Cache::has('contacts_count')) {
+                Cache::remember('contacts_count', now()->addMinutes(60), function () {
+                    return Contact::where('is_read', 0)->count();
+                });
+            }
 
 
 
@@ -62,6 +68,7 @@ class ViewServiceProvider extends ServiceProvider
                 'brands_count' => Cache::get('brands_count'),
                 'admins_count' => Cache::get('admins_count'),
                 'coupons_count' => Cache::get('coupons_count'),
+                'contacts_count' => Cache::get('contacts_count'),
 
             ]);
         });

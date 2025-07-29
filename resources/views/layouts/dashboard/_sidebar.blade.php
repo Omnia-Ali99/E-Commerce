@@ -97,6 +97,20 @@
                 @endcan
             </ul>
         </li>
+        @can('contacts')
+                <li class=" nav-item"><a href="index.html"><i class="la la-phone"></i><span class="menu-title"
+                            data-i18n="nav.dash.main">{{ __('dashboard.contacts') }}</span><span
+                            class="badge badge badge-info badge-pill float-right mr-2">
+                            {{ $contacts_count }}
+                          </span></a>
+                    <ul class="menu-content">
+                        <li><a class="menu-item" href="{{ route('dashboard.contacts.index') }}"
+                                data-i18n="nav.dash.ecommerce">{{ __('dashboard.contacts') }}</a>
+                        </li>
+                    </ul>
+                </li>
+         @endcan
+
           
         
           @can('faqs')

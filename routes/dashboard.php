@@ -1,4 +1,5 @@
 <?php
+
 use Livewire\Livewire;
 use App\Http\Controllers\Dashboard\ProductController;
 use Illuminate\Support\Facades\Route;
@@ -12,7 +13,8 @@ use App\Http\Controllers\Dashboard\{
   SettingController,
   WelcomeController,
   CategoryController,
-  UserController,
+    ContactController,
+    UserController,
 };
 
 use App\Http\Controllers\Dashboard\AttributeController;
@@ -28,7 +30,7 @@ Route::group(
     'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
   ],
   function () {
-    
+
 
     ##################################### Auth ##################################################
     Route::get('login', [AuthController::class, 'ShowLoginForm'])->name('login');
@@ -161,11 +163,20 @@ Route::group(
       });
       ############################### End users ################################
 
+      
+      ############################### Contact Routes ##############################
+      Route::group(['middleware' => 'can:contacts'], function () {
+        Route::get('contacts',          [ContactController::class, 'index'])->name('contacts.index');
+          
+        Route::get('contacts-get/{id}', [ContactController::class, 'getContactById'])->name('contacts.get');
+      });
+      ############################### End Contacts ################################
+
 
     });
 
-     Livewire::setUpdateRoute(function ($handle) {
-            return Route::post('/livewire/update', $handle);
-        });
+    Livewire::setUpdateRoute(function ($handle) {
+      return Route::post('/livewire/update', $handle);
+    });
   }
 );

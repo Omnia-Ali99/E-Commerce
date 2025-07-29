@@ -203,6 +203,8 @@ return [
     'products_show'=>'Products Show',
 
     'users'=>'Users',
+    'users_table'=>'users table',
+    'create_user'=>'create user',
     'governorates'=>'Governorates',
     'num_of_orders'=>'Num Of Orders',
     'email_verified_at'=>'Email Verified At',
@@ -291,6 +293,8 @@ return [
     'cancelled'=>'Canceled Orders',
     'paid'=>'Paid Orders',
     'logout'=>'Logout',
+    'create_admin'=>'create admin',
+
 
 
 
