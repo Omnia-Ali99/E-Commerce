@@ -34,6 +34,8 @@ class DatabaseSeeder extends Seeder
             AttributeSeeder::class,
             UserSeeder::class,
             ContactSeeder::class,
+            SliderSeeder::class,
+            PageSeeder::class,
 
 
 

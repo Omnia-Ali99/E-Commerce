@@ -2,23 +2,21 @@
 
 namespace App\Http\Controllers\Dashboard;
 
-use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CategoryRequest;
 use Illuminate\Support\Facades\Session;
-use Yajra\DataTables\Facades\DataTables;
 use App\Services\Dashboard\CategoryService;
 
 class CategoryController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    protected $categoryService;
-    public function __construct(CategoryService $categoryService){
-        $this->categoryService = $categoryService;
+    protected $categoryService ;
+
+    public function __construct(CategoryService $categoryService)
+    {
+         $this->categoryService = $categoryService;
     }
+
     public function index()
     {
         $edit_categories = $this->categoryService->getCategoriesExceptChildren(1);
@@ -37,7 +35,7 @@ class CategoryController extends Controller
 
     public function store(CategoryRequest $request)
     {
-        $data = $request->only(['name' , 'parent' , 'status']);
+        $data = $request->only(['name' , 'parent' , 'status','icon']);
         if(!$this->categoryService->store($data)){
             Session::flash('error' , __('dashboard.error_msg'));
             return redirect()->back();
@@ -57,7 +55,7 @@ class CategoryController extends Controller
 
     public function update(CategoryRequest $request, string $id)
     {
-        $data = $request->only(['name' , 'parent' , 'status' , 'id']);
+        $data = $request->only(['name' , 'parent' , 'status' , 'id','icon']);
         if(!$this->categoryService->update($data)){
             Session::flash('error' , __('dashboard.error_msg'));
             return redirect()->back();

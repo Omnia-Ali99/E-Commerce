@@ -43,12 +43,11 @@ class RegisterController extends Controller
     {
         $this->middleware('guest');
     }
-     public function showRegistrationForm()
+    public function showRegistrationForm()
     {
         return view('website.auth.register');
     }
-
-        public function register(Request $request)
+    public function register(Request $request)
     {
         $this->validator($request->all())->validate();
 
@@ -96,6 +95,7 @@ class RegisterController extends Controller
             'governorate_id' => ['required', 'exists:governorates,id'],
             'city_id' => ['required', 'exists:cities,id'],
             'terms'   =>['in:on,off'],
+
         ]);
     }
 
@@ -111,6 +111,15 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'country_id'=>$data['country_id'],
+            'governorate_id'=> $data['governorate_id'],
+            'city_id'=>$data['city_id'],
         ]);
+    }
+
+    public function registered(Request $request ,$user)
+    {
+        Session::flash('success' , 'Your Account Created Successfully');
+        return redirect()->route('website.profile');
     }
 }

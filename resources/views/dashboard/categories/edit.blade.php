@@ -6,7 +6,7 @@
         <div class="content-wrapper">
             <div class="content-header row">
                 <div class="content-header-left col-md-6 col-9 mb-2 breadcrumb-new">
-                    <h3 class="content-header-title mb-0 d-inline-block">{{ __('dashboard.categories_table') }}</h3>
+                    <h3 class="content-header-title mb-0 d-inline-block">{{ __('dashboard.governorates_table') }}</h3>
                     <div class="row breadcrumbs-top d-inline-block">
                         <div class="breadcrumb-wrapper col-12">
                             <ol class="breadcrumb">
@@ -50,7 +50,7 @@
                                     @include('dashboard.includes.validations-errors')
 
                                     <p class="card-text">{{ __('dashboard.form_edit') }}.</p>
-                                    <form class="form" action="{{ route('dashboard.categories.update', $category->id) }}" method="POST" >
+                                    <form class="form" action="{{ route('dashboard.categories.update', $category->id) }}" method="POST"  enctype="multipart/form-data"
                                         @csrf
                                         @method('PUT')
 
@@ -77,6 +77,11 @@
                                                 </select>
                                             </div>
 
+                                            <div class="form-group">
+                                                <label for="image">{{ __('dashboard.icon') }}</label>
+                                                <input type="file"  name="icon" class="form-control" id="single-image-edit"
+                                                    placeholder="{{ __('dashboard.icon') }}">
+                                            </div>
 
                                             <div class="form-group">
                                                 <label>{{ __('dashboard.status') }}</label>
@@ -113,3 +118,26 @@
     </div>
 
 @endsection
+@push('js')
+@push('js')
+<script>
+    var lang = "{{ app()->getLocale() }}";
+    $(function() {
+         $('#single-image-edit').fileinput({
+             theme: 'fa5',
+             language:lang,
+             allowedFileTypes: ['image'],
+             maxFileCount: 1,
+             enableResumableUpload: false,
+             showUpload: false,
+             initialPreviewAsData:true,
+             initialPreview:[
+                "{{ asset($category->icon) }}",
+             ],
+
+         });
+
+     });
+</script>
+@endpush
+@endpush

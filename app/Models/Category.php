@@ -17,6 +17,7 @@ class Category extends Model
         'slug',
         'parent',
         'status',
+        'icon'
     ];
     public function sluggable(): array
     {
@@ -60,5 +61,9 @@ class Category extends Model
     public function parent()
     {
         return $this->belongsTo(Category::class , 'parent');
+    }
+        public function getIconAttribute($icon)
+    {
+        return 'uploads/categories/' . $icon;
     }
 }

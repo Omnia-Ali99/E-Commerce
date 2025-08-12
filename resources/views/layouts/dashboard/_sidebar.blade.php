@@ -122,6 +122,37 @@
         </li>
         @endcan
 
+         <li class=" nav-item"><a href="javascipt:void(0)"><i class="la la-gears"></i><span class="menu-title"
+                        data-i18n="nav.dash.main">{{ __('dashboard.settings') }}</span></a>
+                <ul class="menu-content">
+                    {{-- @can('settings')
+                        <li><a class="menu-item" href="{{ route('dashboard.settings.index') }}"
+                                data-i18n="nav.dash.ecommerce">{{ __('dashboard.settings') }}</a>
+                        </li>
+                    @endcan --}}
+                    @can('sliders')
+                        <li><a class="menu-item" href="{{ route('dashboard.sliders.index') }}"
+                                data-i18n="nav.dash.ecommerce">{{ __('dashboard.sliders') }}</a>
+                        </li>
+                    @endcan
+
+                </ul>
+            </li>
+
+              @can('pages')
+                <li class=" nav-item"><a href="javascipt:void(0)"><i class="la la-folder-open-o"></i><span
+                            class="menu-title" data-i18n="nav.dash.main">{{ __('dashboard.pages') }}</span></a>
+                    <ul class="menu-content">
+                        <li><a class="menu-item" href="{{ route('dashboard.pages.index') }}"
+                                data-i18n="nav.dash.ecommerce">{{ __('dashboard.pages') }}</a>
+                        </li>
+                        <li><a class="menu-item" href="{{ route('dashboard.pages.create') }}"
+                                data-i18n="nav.dash.ecommerce">{{ __('dashboard.create_page') }}</a>
+                        </li>
+                    </ul>
+                </li>
+            @endcan
+
 
 
 

@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('sliders', function (Blueprint $table) {
             $table->id();
             $table->string('file_name');
-            $table->string('product_slug')->nullable();
+            $table->string('note')->nullable();
             $table->timestamps();
         });
     }

@@ -81,10 +81,10 @@ class User extends Authenticatable
     }
 
     // user & cart
-    // public function cart()
-    // {
-    //     return $this->hasOne(Cart::class , 'user_id');
-    // }
+    public function cart()
+    {
+        return $this->hasOne(Cart::class , 'user_id');
+    }
 
     public function reviews()
     {

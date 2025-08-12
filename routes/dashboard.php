@@ -13,8 +13,10 @@ use App\Http\Controllers\Dashboard\{
   SettingController,
   WelcomeController,
   CategoryController,
-    ContactController,
-    UserController,
+  ContactController,
+    PageController,
+    SliderController,
+  UserController,
 };
 
 use App\Http\Controllers\Dashboard\AttributeController;
@@ -163,15 +165,31 @@ Route::group(
       });
       ############################### End users ################################
 
-      
+
       ############################### Contact Routes ##############################
       Route::group(['middleware' => 'can:contacts'], function () {
         Route::get('contacts',          [ContactController::class, 'index'])->name('contacts.index');
-          
+
         Route::get('contacts-get/{id}', [ContactController::class, 'getContactById'])->name('contacts.get');
       });
       ############################### End Contacts ################################
 
+      ############################### Sliders Routes ##############################
+      Route::group(['middleware' => 'can:sliders'], function () {
+        Route::get('sliders',         [SliderController::class, 'index'])->name('sliders.index');
+        Route::post('sliders',        [SliderController::class, 'store'])->name('sliders.store');
+        Route::get('sliders-all',     [SliderController::class, 'getAll'])->name('sliders.all');
+        Route::get('remove/{id}',     [SliderController::class, 'destroy'])->name('sliders.delete');
+      });
+      ############################### End Sliders ################################
+      
+      ############################### Pages Routes #############################
+      Route::group(['middleware' => 'can:pages'], function () {
+        Route::resource('pages', PageController::class);
+        Route::get('pages-all', [PageController::class, 'getAll'])
+          ->name('pages.all');
+      });
+      ############################### End pages ################################
 
     });
 

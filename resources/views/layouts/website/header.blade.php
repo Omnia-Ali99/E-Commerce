@@ -845,8 +845,8 @@ Baby Shop
 </div>
 </li>
 <li>
-<a href="#">
-<span class="list-text">Pages</span>
+<a href="javascript:void(0)">
+<span class="list-text">{{ __('website.pages') }}</span>
 <span>
 <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g clip-path="url(#clip0_1_183)">
@@ -861,12 +861,14 @@ Baby Shop
 </span>
 </a>
 <ul class="header-sub-menu">
-<li><a href="product-info.html">Product-details</a></li>
-<li><a href="privacy.html">Privacy Policy</a></li>
-<li><a href="terms.html">Terms & Condition</a></li>
-<li><a href="faq.html">FAQ</a></li>
-<li><a href="product-sidebar.html">Shop Category Icon</a></li>
-<li><a href="product-sidebar.html">Shop List View</a></li>
+ @if ($pages->count() > 0)
+  @foreach ($pages as $item)
+   <li><a
+   href="">{{ $item->title }}</a>
+    </li>
+      @endforeach
+      @endif
+
 </ul>
 </li>
 <li>

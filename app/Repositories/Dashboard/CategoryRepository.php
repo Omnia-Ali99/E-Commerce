@@ -6,18 +6,18 @@ use App\Models\Category;
 
 class CategoryRepository
 {
-    /**
-     * Create a new class instance.
-     */
-    public function getAll(){
-        $categories = Category::all();
+
+    public function getAll()
+    {
+        $categories = Category::latest()->get();
         return $categories;
     }
-    public function findById($id){
+    public function findById($id)
+    {
         $category = Category::find($id);
         return $category;
-
     }
+
     public function store($data)
     {
         $category = Category::create($data);
@@ -47,5 +47,5 @@ class CategoryRepository
         ->get();
         return  $categories;
     }
-    
+
 }

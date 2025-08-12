@@ -4,11 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Translatable\HasTranslations;
+use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Product extends Model
 {
-     use HasFactory , HasTranslations;
+     use HasFactory , HasTranslations , Sluggable;
 
     public $translatable = ['name', 'desc' ,'small_desc'];
     public $guarded = [];
@@ -81,6 +82,15 @@ class Product extends Model
     public function scopeInactive($query)
     {
         return $query->where('status' , 0);
+    }
+
+    public function sluggable(): array
+    {
+        return [
+            'slug' => [
+                'source' => 'name'
+            ]
+        ];
     }
 
 }

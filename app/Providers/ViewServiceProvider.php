@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\Faq;
+use App\Models\Page;
 use App\Models\Admin;
 use App\Models\Brand;
 use App\Models\Coupon;
@@ -70,6 +71,17 @@ class ViewServiceProvider extends ServiceProvider
                 'coupons_count' => Cache::get('coupons_count'),
                 'contacts_count' => Cache::get('contacts_count'),
 
+            ]);
+        });
+
+             // share website variables
+        view()->composer('website.*', function ($view) {
+
+            $pages = Page::select('id', 'slug', 'title')->get();
+
+            view()->share([
+                'pages' => $pages,
+                
             ]);
         });
 
