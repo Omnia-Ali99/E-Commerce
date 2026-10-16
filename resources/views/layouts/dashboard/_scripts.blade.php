@@ -111,12 +111,12 @@
 
  
  {{-- fileinput --}}
-<script src="{{ asset('vendor/file-input/js/fileinput.min.js') }}"></script>
-<script src="{{ asset('vendor/file-input/themes/fa5/theme.min.js') }}"></script>
+<script src="{{ asset('vendor/file_input/js/fileinput.min.js') }}"></script>
+<script src="{{ asset('vendor/file_input/themes/fa5/theme.min.js') }}"></script>
 
 @if(Config::get('app.locale') == 'ar')
-<script src="{{ asset('vendor/file-input/js/locales/LANG.js')}}"></script>
-<script src="{{ asset('vendor/file-input/js/locales/ar.js') }}"></script>
+<script src="{{ asset('vendor/file_input/js/locales/LANG.js')}}"></script>
+<script src="{{ asset('vendor/file_input/js/locales/ar.js') }}"></script>
 @endif
 <script>
     var lang = "{{ app()->getLocale() }}";
