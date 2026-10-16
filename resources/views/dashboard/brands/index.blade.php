@@ -179,7 +179,7 @@
 
 
             language: lang === 'ar' ? {
-                url: '//cdn.datatables.net/plug-ins/2.1.8/i18n/ar.json',
+                url: 'https://cdn.datatables.net/plug-ins/2.1.8/i18n/ar.json'
             } : {},
 
 

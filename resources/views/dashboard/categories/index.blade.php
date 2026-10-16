@@ -113,7 +113,7 @@
             responsive: {
                 details: {
                     display: DataTable.Responsive.display.modal({
-                        header: function(row) {
+                        header: function (row) {
                             var data = row.data();
                             return 'Details for ' + data[0] + ' ' + data[1];
                         }
@@ -125,21 +125,21 @@
             },
             ajax: "{{ route('dashboard.categories.all') }}",
             columns: [{
-                    data: 'DT_RowIndex',
-                    searchable: false,
-                    orderable: false,
-                },
-                {
-                    data: 'name',
-                    name: 'name',
-                },
-                {
-                    data: 'status',
-                    name: 'status',
-                },
-                {
-                    data:'products_count',
-                    name:'products_count',
+                data: 'DT_RowIndex',
+                searchable: false,
+                orderable: false,
+            },
+            {
+                data: 'name',
+                name: 'name',
+            },
+            {
+                data: 'status',
+                name: 'status',
+            },
+            {
+                data: 'products_count',
+                name: 'products_count',
 
                 },
                 {
@@ -151,12 +151,12 @@
                     data: 'created_at',
                     name: 'created_at'
 
-                },
-                {
-                    data: 'action',
-                    searchable: false,
-                    orderable: false,
-                },
+            },
+            {
+                data: 'action',
+                searchable: false,
+                orderable: false,
+            },
 
             ],
             layout: {
@@ -167,7 +167,7 @@
 
 
             language: lang === 'ar' ? {
-                url: '//cdn.datatables.net/plug-ins/2.1.8/i18n/ar.json',
+                url: 'https://cdn.datatables.net/plug-ins/2.1.8/i18n/ar.json'
             } : {},
 
 

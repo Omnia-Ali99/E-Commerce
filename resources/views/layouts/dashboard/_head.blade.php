@@ -78,7 +78,7 @@ rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.datatables.net/scroller/2.4.3/css/scroller.dataTables.min.css">
 
 {{-- file input --}}
-<link rel="stylesheet" href="{{ asset('vendor/file-input/css/fileinput.min.css') }}">
+<link rel="stylesheet" href="{{ asset('vendor/file_input/css/fileinput.min.css') }}">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" crossorigin="anonymous">
 
 {{-- end file input --}}
