@@ -35,7 +35,7 @@ rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="{{asset('assets/dashboard')}}/css-rtl/pages/dashboard-ecommerce.css">
 <!-- END Page Level CSS-->
 <!-- BEGIN Custom CSS-->
-<link rel="stylesheet" type="text/css" href="{{asset('assets/dashboard')}}/style-rtl.css">
+{{-- <link rel="stylesheet" type="text/css" href="{{asset('assets/dashboard')}}/style-rtl.css"> --}}
 
 {{-- edit dtatables style for input search in case rtl --}}
 
@@ -44,7 +44,7 @@ rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="{{asset('assets/dashboard')}}/css/vendors.css">
 <!-- BEGIN MODERN CSS-->
 <link rel="stylesheet" type="text/css" href="{{asset('assets/dashboard')}}/css/app.css">
-<link rel="stylesheet" type="text/css" href="{{asset('assets/dashboard')}}/custom/product.css">
+{{-- <link rel="stylesheet" type="text/css" href="{{asset('assets/dashboard')}}/css/custom.css"> --}}
 <!-- END MODERN CSS-->
 <!-- BEGIN Page Level CSS-->
 <link rel="stylesheet" type="text/css" href="{{asset('assets/dashboard')}}/css/core/menu/menu-types/vertical-menu-modern.css">
@@ -55,7 +55,7 @@ rel="stylesheet">
 <!-- END Page Level CSS-->
 
 <!-- BEGIN Custom CSS-->
-<link rel="stylesheet" type="text/css" href="{{ asset('assets/dashboard')}}/custom/product.css">
+{{-- <link rel="stylesheet" type="text/css" href="{{asset('assets/dashboard')}}/style.css"> --}}
 
 @endif
 
