@@ -1,10 +1,11 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\Website\HomeController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Website\HomeController;
 use App\Http\Controllers\Website\ProfileController;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 Route::group(

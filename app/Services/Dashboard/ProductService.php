@@ -149,4 +149,21 @@ class ProductService
         $this->imageManager->deleteImageFromLocal('uploads/products/' . $file_name);
         return $this->productRepository->deleteProductImage($imageId);
     }
+
+    public function getProductVariant($variant_id)
+    {
+      $ProductVariant  = $this->productRepository->getProductVariant($variant_id);
+           return $ProductVariant ?? abort(404);
+     
+}
+    public function deleteVariant($variant_id)
+    {
+        $variant = $this->getProductVariant($variant_id);
+        $product = $variant->product;
+        if($product->variants->count() == 1){
+        return false;
+        }
+       return $this->productRepository->deleteVariant($variant);
+
+    }
 }

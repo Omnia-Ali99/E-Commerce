@@ -21,6 +21,11 @@ class ProductRepository
     {
         return Product::latest()->get();
     }
+      public function getProductVariant($variant_id)
+    {
+        return ProductVariant::findOrFail($variant_id);
+
+    }
     public function createProduct($data)
     {
         return Product::create($data);
@@ -53,5 +58,11 @@ class ProductRepository
     public function deleteProductVariants($productId)
     {
         return ProductVariant::where('product_id', $productId)->delete();
+    }
+
+
+       public function deleteVariant($variant)
+    {
+       return $variant->delete();
     }
 }

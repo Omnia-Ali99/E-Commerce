@@ -15,8 +15,8 @@ use App\Services\Dashboard\AttributeService;
 
 class ProductController extends Controller
 {
-    protected $productService , $brandService , $categoryService , $attributeService;
-    public function __construct(ProductService $productService , BrandService $brandService , CategoryService $categoryService , AttributeService $attributeService)
+    protected $productService, $brandService, $categoryService, $attributeService;
+    public function __construct(ProductService $productService, BrandService $brandService, CategoryService $categoryService, AttributeService $attributeService)
     {
         $this->productService = $productService;
         $this->brandService = $brandService;
@@ -76,12 +76,12 @@ class ProductController extends Controller
      */
     public function edit(string $id)
     {
-       $productId   = $id;
-       $categories  = $this->categoryService->getCategories();
-       $brands      = $this->brandService->getBrands();
-       $attributes  = $this->attributeService->getAttributes();
+        $productId = $id;
+        $categories = $this->categoryService->getCategories();
+        $brands = $this->brandService->getBrands();
+        $attributes = $this->attributeService->getAttributes();
 
-       return view('dashboard.products.edit' , compact('productId' , 'categories' , 'brands' , 'attributes'));
+        return view('dashboard.products.edit', compact('productId', 'categories', 'brands', 'attributes'));
 
     }
 
@@ -112,12 +112,10 @@ class ProductController extends Controller
 
     public function deleteVariant($variant_id)
     {
-        $variant = ProductVariant::find($variant_id);
-        $product = $variant->product;
-        if($product->variants->count() == 1){
+        if (!$this->productService->deleteVariant($variant_id)) {
             return redirect()->back()->with('error', 'You can not delete the last variant');
         }
-        $variant->delete();
         return redirect()->back()->with('success', 'Variant deleted successfully');
     }
 }
+
