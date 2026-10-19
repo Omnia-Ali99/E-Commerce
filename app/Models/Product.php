@@ -5,13 +5,22 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Translatable\HasTranslations;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Cviebrock\EloquentSluggable\Sluggable;
 
 class Product extends Model
 {
-     use HasFactory , HasTranslations;
+     use HasFactory , HasTranslations ,Sluggable;
 
     public $translatable = ['name', 'desc' ,'small_desc'];
     public $guarded = [];
+        public function sluggable(): array
+    {
+        return [
+            'slug' => [
+                'source' => 'name'
+            ]
+        ];
+    }
 
     // relationships
     public function category()
