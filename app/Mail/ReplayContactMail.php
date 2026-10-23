@@ -41,7 +41,7 @@ class ReplayContactMail extends Mailable
     public function content(): Content
     {
         return new Content(
-            markdown: 'emails.replay-contact',
+            markdown: 'email.replay-contact',
             with: [
                 'clientName' => $this->clientName,
                 'replyMessage' => $this->replyMessage,

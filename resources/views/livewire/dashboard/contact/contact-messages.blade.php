@@ -10,7 +10,7 @@
     </div>
     <div class="list-group">
         @forelse ($messages as $msg)
-            <a wire:click="showMessage({{ $msg->id }})" href="#" class="media border-0 {{ $msg->id == $opendMsgId ? 'bg-light' : '' }}">
+            <a wire:click.prevent="showMessage({{ $msg->id }})" href="#" class="media border-0 {{ $msg->id == $opendMsgId ? 'bg-light' : '' }}">
                 <div class="media-left pr-1">
                     <span class="avatar avatar-md">
                         <span class="media-object rounded-circle text-circle bg-info">T</span>
