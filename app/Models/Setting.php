@@ -46,4 +46,15 @@ class Setting extends Model
     {
         return 'uploads/settings/' . $this->attributes['favicon'];
     }
+    public function getPromotionVideoUrlAttribute($value)
+    {
+        return $this->convertToEmbedUrl($value);
+    }
+    private function convertToEmbedUrl($url)
+    {
+        if (strpos($url, 'watch?v=') !== false) {
+            return str_replace('watch?v=', 'embed/', $url);
+        }
+        return $url;
+    }
 }

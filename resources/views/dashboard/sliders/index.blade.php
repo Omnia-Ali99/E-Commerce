@@ -50,7 +50,7 @@
                                     {{-- create slider modal --}}
                                     <button type="button" class="btn btn-outline-success" data-toggle="modal"
                                         data-target="#createSliderModal">
-                                        {{ __('dashboard.create_slider') }}
+                                        {{ __('dashboard.create_sliders') }}
                                     </button>
 
                                     {{-- modal --}}

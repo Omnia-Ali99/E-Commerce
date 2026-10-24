@@ -52,7 +52,7 @@ class RegisterController extends Controller
         $this->validator($request->all())->validate();
 
         if(!$this->checkterms($request->terms)){
-            return redirect()->back()->withErrors(['Please Accept Terms and Conditions']);
+            return redirect()->back()->withErrors([__('dashboard.please_accept_terms_and_conditions')]);
         }
         event(new Registered($user = $this->create($request->all())));
 
@@ -119,7 +119,7 @@ class RegisterController extends Controller
 
     public function registered(Request $request ,$user)
     {
-        Session::flash('success' , 'Your Account Created Successfully');
+        Session::flash('success'  ,__('dashboard.your_account_created_successfully') );
         return redirect()->route('website.profile');
     }
 }

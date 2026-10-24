@@ -39,7 +39,6 @@ return [
     'name'=>'Name',
     'phone'=>'Phone',
     'address'=>'Address',
-    'image'=>'Image',
     'created_by'=>'Created By',
     'updated_by'=>'Updated By',
     'deleted_by'=>'Deleted By',
@@ -55,7 +54,6 @@ return [
     'shipping_price'=>'Shipping Price',
     'num_of_cities'=>'Number Of Cities',
     'country'=>'Country',
-    'governorates'=>'Governorates',
     'shippping'=>'Shipping',
     'governorates_table'=>'Governorates Table',
     'countries_table'=>' Countries Table',
@@ -65,11 +63,11 @@ return [
     'change_price'=>' Change Price',
 
     'categories'=>'Categories',
+    'select_parent' => 'Select Parent Category',
     'brands'=>'Brands',
     'category_create'=>'Create Category',
     'brand_create'=>'Create Brand',
     'table_yajra_paragraph'=>'A dynamic table that displays data from the database with features like search, sorting, column visibility toggle, and options to export to Excel, print, or copy data.',
-
    'are_you_sure'=>' Are You Sure ?',
    'name_ar'=>'Name Arabic',
    'name_en'=>'Name English',
@@ -83,12 +81,10 @@ return [
     'not_found'=>'Not Found',
 
     'admins'=>'Admins ',
-    'categories'=>'Categories ',
-    'brands'=>'Brands ',
+
     'products'=>'Products ',
     'orders'=>'Orders ',
     'shipping'=>'Shipping ',
-    'roles'=>'Roles&Permissions',
     'create_brand'=>'Create Brand',
 
     'coupons'=>'Coupons ',
@@ -100,7 +96,6 @@ return [
     'is_active'=>'Is Active',
     'start_date'=>'Start Date',
     'end_date'=>'End Date',
-    'discount'=>'Discount',
      'time_used'=>'Time Used',
      'coupons_table'=>'Coupons Table',
      'faqs'=>'Faqs ',
@@ -160,7 +155,6 @@ return [
     'add_more'=>'Add More',
 
     // products
-    'products'=>'Products',
     'product_name_en'=>'Product Name Enlish',
     'product_name_ar'=>'Product Name Arabic',
     'small_description_ar'=>'Small Description Arabic',
@@ -175,7 +169,6 @@ return [
     'manage_stock'=>'Manage Stock',
     'quantity'=>'Quantity',
     'has_discount'=>'Has Discount',
-    'discount'=>'Discount',
     'start_discount'=>'Start Discount',
     'end_discount'=>'End Discount',
     'product_images'=>'Product Images',
@@ -250,8 +243,6 @@ return [
     'user_name'=>'User Name',
     'governorate'=>'Governorate',
     'city'=>'City',
-    'address'=>'Address',
-    'create_faq'=>'Create Faq',
     'faq'=>'Faq',
     'faq_table'=>'Faq Table',
     'faq_en'=>'Faq English',
@@ -261,14 +252,11 @@ return [
     'service'=>'Service',
     'sub_total'=>'Sub Total',
     'total'=>'Total',
-    'discount'=>'Discount',
     'tax'=>'Tax',
     'total_price'=>'Total Price',
     'service_table'=>'Service Table',
     'service_en'=>'Service English',
     'service_ar'=>'Service Arabic',
-    'create_product'=>'Create Product',
-    'products'=>'Products',
     'product'=>'Product',
     'product_table'=>'Product Table',
     'coupon_discount'=>'Coupon Discount',
@@ -295,7 +283,12 @@ return [
     'logout'=>'Logout',
     'create_admin'=>'create admin',
 
-
+    'icon' => 'Icon',
+    'categories_table' => 'Categories Table',
+    'no_cancel' => 'No, Cancel',
+    'delete_it' => 'Delete It',
+    'You_will_not_be_able_to_revert_this' => 'You will not be able to revert this',
+    'create_sliders' => 'Create Sliders',
 
 
 

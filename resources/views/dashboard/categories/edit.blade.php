@@ -6,7 +6,7 @@
         <div class="content-wrapper">
             <div class="content-header row">
                 <div class="content-header-left col-md-6 col-9 mb-2 breadcrumb-new">
-                    <h3 class="content-header-title mb-0 d-inline-block">{{ __('dashboard.governorates_table') }}</h3>
+                    <h3 class="content-header-title mb-0 d-inline-block">{{ __('dashboard.categories_table') }}</h3>
                     <div class="row breadcrumbs-top d-inline-block">
                         <div class="breadcrumb-wrapper col-12">
                             <ol class="breadcrumb">
@@ -50,7 +50,7 @@
                                     @include('dashboard.includes.validations-errors')
 
                                     <p class="card-text">{{ __('dashboard.form_edit') }}.</p>
-                                    <form class="form" action="{{ route('dashboard.categories.update', $category->id) }}" method="POST"  enctype="multipart/form-data"
+                                    <form class="form" action="{{ route('dashboard.categories.update', $category->id) }}" method="POST"  enctype="multipart/form-data">
                                         @csrf
                                         @method('PUT')
 
@@ -60,7 +60,7 @@
                                             <div class="form-group">
                                                 <label for="eventRegInput1">{{ __('dashboard.name_en') }}</label>
                                                 <input type="text" value="{{ $category->getTranslation('name', 'en') }}" class="form-control"
-                                                    placeholder="{{ __('dashboard.name_en') }}" name="name[en]">
+                                                    placeholder="{{ __('dashboard.name_en') }}" name="name[en]" >
                                             </div>
                                             <div class="form-group">
                                                 <label for="eventRegInput1">{{ __('dashboard.name_ar') }}</label>
@@ -119,7 +119,6 @@
 
 @endsection
 @push('js')
-@push('js')
 <script>
     var lang = "{{ app()->getLocale() }}";
     $(function() {
@@ -139,5 +138,4 @@
 
      });
 </script>
-@endpush
 @endpush

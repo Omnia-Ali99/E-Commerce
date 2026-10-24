@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
-use Yajra\DataTables\Utilities\Request;
+use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller
@@ -47,7 +47,14 @@ class LoginController extends Controller
 
       protected function authenticated(Request $request, $user)
     {
-        Session::flash('success',__('website.loged_in_successfully'));
+        Session::flash('success',__('website.logged_in_successfully'));
         return redirect()->route('website.profile');
     }
+     protected function loggedOut(Request $request)
+    {
+          Session::flash('success',__('website.logout_successfully'));
+          return redirect()->route('website.login.get');
+    }
+
+
 }

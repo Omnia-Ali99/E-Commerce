@@ -23,14 +23,14 @@ return Application::configure(basePath: dirname(__DIR__))
             if (request()->is('*/dashboard/*'))
                 return route('dashboard.login');
             else
-                return route('login');
+                return route('website.login.get');
         });
 
         $middleware->redirectUsersTo(function () {
             if (Auth::guard('admin')->check())
                 return route('dashboard.welcome');
             else
-                return route('/');
+                return route('website.profile');
         });
 
         $middleware->alias([

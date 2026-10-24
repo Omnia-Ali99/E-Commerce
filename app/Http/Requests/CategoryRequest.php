@@ -26,6 +26,7 @@ class CategoryRequest extends FormRequest
             'name.*'=>['required','string','max:100' ,UniqueTranslationRule::for('categories')->ignore($this->id) ],
             'status'=>['required', 'in:1,0'],
             'parent'=>['nullable','exists:categories,id'],
+            'icon' => ['nullable'],
         ];
     }
 }

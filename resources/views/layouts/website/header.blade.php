@@ -864,7 +864,7 @@ Baby Shop
  @if ($pages->count() > 0)
   @foreach ($pages as $item)
    <li><a
-   href="">{{ $item->title }}</a>
+   href="{{ route('dynmic-page' ,$item->slug) }}">{{ $item->title }}</a>
     </li>
       @endforeach
       @endif

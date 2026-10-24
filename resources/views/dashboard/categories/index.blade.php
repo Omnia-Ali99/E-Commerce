@@ -8,7 +8,7 @@
         <div class="content-wrapper">
             <div class="content-header row">
                 <div class="content-header-left col-md-6 col-12 mb-2 breadcrumb-new">
-                    <h3 class="content-header-title mb-0 d-inline-block">{{ __('dashboard.governorates_table') }}</h3>
+                    <h3 class="content-header-title mb-0 d-inline-block">{{ __('dashboard.categories_table') }}</h3>
                     <div class="row breadcrumbs-top d-inline-block">
                         <div class="breadcrumb-wrapper col-12">
                             <ol class="breadcrumb">
@@ -32,7 +32,7 @@
                         <div class="card">
                             <div class="card-header">
                                 <h4 class="card-title" id="basic-layout-colored-form-control">
-                                    {{ __('dashboard.governorates') }}
+                                    {{ __('dashboard.categories') }}
                                 </h4>
                                 <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
                                 <div class="heading-elements">
@@ -115,8 +115,7 @@
                     display: DataTable.Responsive.display.modal({
                         header: function (row) {
                             var data = row.data();
-                            return 'Details for ' + data[0] + ' ' + data[1];
-                        }
+                            return 'Details for ' + data.name + ' ' + data.status;                        }
                     }),
                     renderer: DataTable.Responsive.renderer.tableAll({
                         tableClass: 'table'

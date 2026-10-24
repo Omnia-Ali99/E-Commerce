@@ -125,11 +125,11 @@
          <li class=" nav-item"><a href="javascipt:void(0)"><i class="la la-gears"></i><span class="menu-title"
                         data-i18n="nav.dash.main">{{ __('dashboard.settings') }}</span></a>
                 <ul class="menu-content">
-                    {{-- @can('settings')
+                    @can('settings')
                         <li><a class="menu-item" href="{{ route('dashboard.settings.index') }}"
                                 data-i18n="nav.dash.ecommerce">{{ __('dashboard.settings') }}</a>
                         </li>
-                    @endcan --}}
+                    @endcan
                     @can('sliders')
                         <li><a class="menu-item" href="{{ route('dashboard.sliders.index') }}"
                                 data-i18n="nav.dash.ecommerce">{{ __('dashboard.sliders') }}</a>
