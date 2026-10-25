@@ -118,6 +118,9 @@
             <ul class="menu-content">
                 <li class="active"><a class="menu-item" href="{{ route('dashboard.faqs.index') }}" data-i18n="nav.dash.ecommerce">{{ __('dashboard.faqs') }}</a>
                 </li>
+                 <li><a class="menu-item" href="{{ route('dashboard.faq.questions.index') }}"
+                                data-i18n="nav.dash.ecommerce">{{ __('dashboard.faq_questions') }}</a>
+                        </li>
             </ul>
         </li>
         @endcan

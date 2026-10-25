@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Website\DynmicPageController;
+use App\Http\Controllers\Website\FaqController;
 use App\Http\Controllers\Website\HomeController;
 use App\Http\Controllers\Website\ProfileController;
 use Illuminate\Support\Facades\Auth;
@@ -41,6 +42,9 @@ Route::group(
         });
 
 
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/page/{slug}', [DynmicPageController::class, 'showDynmicPage'])->name('dynmic-page');
+Route::get('/faq',[FaqController::class, 'faqShowPage'])->name('faq.index');
 
 
     }
@@ -49,5 +53,3 @@ Auth::routes([
     'login' => false,
     'register' => false,
 ]);
-Route::get('/home', [HomeController::class, 'index'])->name('home');
-Route::get('/{slug}', [DynmicPageController::class, 'showDynmicPage'])->name('dynmic-page');

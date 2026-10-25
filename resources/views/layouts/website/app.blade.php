@@ -39,6 +39,8 @@
 <script src="{{asset('assets/website')}}/assets/js/swiper10-bundle.min.js"></script>
 
 <script src="{{asset('assets/website')}}/assets/js/shopus.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+ @stack('js')
 </body>
 
 <!-- Mirrored from quomodothemes.website/html/shopus/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 15 Nov 2023 07:47:25 GMT -->
