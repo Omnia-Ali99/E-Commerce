@@ -6,9 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Models\Page;
 use Illuminate\Http\Request;
 
-class DynmicPageController extends Controller
+class DynamicPageController extends Controller
 {
-    public function showDynmicPage($slug)
+  public function showDynmicPage($slug)
     {
         $page = Page::where('slug', $slug)->first();
         if ($page) {
@@ -16,6 +16,6 @@ class DynmicPageController extends Controller
         } else {
             abort('404');
         }
+}
 
-    }
 }

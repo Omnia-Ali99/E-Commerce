@@ -223,6 +223,8 @@
                     </div>
                 @endif
 
+                {{-- edit this part --}}
+                @if($has_variants == 0)
                 <div class="col-6">
                     <div class="form-group">
                         <label for="status">{{ __('dashboard.has_discount') }} :</label>
@@ -235,8 +237,10 @@
                         @enderror
                     </div>
                 </div>
+                @endif
+
                 {{-- depend on has discount --}}
-                @if ($has_discount == 1)
+                @if ($has_discount == 1 && $has_variants == 0)
                     <div class="col-6">
                         <div class="form-group">
                             <label for="discount">{{ __('dashboard.discount') }}</label>
@@ -279,7 +283,7 @@
                         <hr>
                         <div class="col-3">
                             <div class="form-group">
-                                <label for="price">Product Price</label>
+                                <label for="price">{{__('dashboard.product_price')}}</label>
                                 <input wire:model="prices.{{ $i }}" type="number" class="form-control"
                                     placeholder="Product Price">
                                 @error('prices.' . $i)
@@ -289,7 +293,7 @@
                         </div>
                         <div class="col-3">
                             <div class="form-group">
-                                <label for="price">Product Quantity</label>
+                                <label for="price">{{__('dashboard.product_quantity')}}</label>
                                 <input wire:model="quantities.{{ $i }}" type="number"
                                     class="form-control" placeholder="Product Quantity">
                                 @error('quantities.' . $i)
@@ -300,10 +304,10 @@
                         @foreach ($attributes as $attr)
                             <div class="col-3">
                                 <div class="form-group">
-                                    <label for="price">Product {{ $attr->name }}</label>
+                                    <label for="price">{{  $attr->name }}</label>
                                     <select wire:model="attributeValues.{{ $i }}.{{ $attr->id }}"
                                         class="form-control">
-                                        <option value="" selected>Select</option>
+                                        <option value="" selected>{{__('dashboard.select')}}</option>
 
                                         @foreach ($attr->attributeValues as $item)
                                             <option value="{{ $item->id }}">{{ $item->value }}</option>

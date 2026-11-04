@@ -16,7 +16,7 @@
                                 <h5 class="wrapper-subtitle">UP TO <span class="wrapper-inner-title">70%</span> OFF
                                 </h5>
                                 <h1 class="wrapper-details">{{ $item->note }}</h1>
-                                {{-- <a href="{{ route('website.shop') }}" class="shop-btn">Shop Now</a> --}}
+                                <a href="{{ route('website.shop') }}" class="shop-btn">Shop Now</a>
                             </div>
                         </div>
                     </div>
@@ -40,7 +40,7 @@
                                 <h4 class="wrapper-details">Get 65% Offer
                                     <span class="wrapper-inner-title">& Make New</span> Fusion.
                                 </h4>
-                                {{-- <a href="{{ route('website.shop') }}" class="shop-btn">Shop Now --}}
+                                <a href="{{ route('website.shop') }}" class="shop-btn">Shop Now
                                     <span>
                                         <svg width="8" height="14" viewBox="0 0 8 14" fill="none"
                                             xmlns="http://www.w3.org/2000/svg">
@@ -63,7 +63,7 @@
                                     <span class="wrapper-inner-title">Styles with Our</span>
                                     Products
                                 </h4>
-                                {{-- <a href="{{ route('website.shop') }}" class="shop-btn">Shop Now --}}
+                                <a href="{{ route('website.shop') }}" class="shop-btn">Shop Now
                                     <span>
                                         <svg width="8" height="14" viewBox="0 0 8 14" fill="none"
                                             xmlns="http://www.w3.org/2000/svg">
@@ -88,7 +88,7 @@
         <div class="container">
             <div class="section-title">
                 <h5>{{ __('website.our_categories') }}</h5>
-                {{-- <a href="{{ route('website.categories.index') }}" class="view">{{ __('website.view_all') }}</a> --}}
+                <a href="{{ route('website.categories.index') }}" class="view">{{ __('website.view_all') }}</a>
             </div>
             <div class="category-section">
                  @forelse ($someCategories as $item)
@@ -97,7 +97,7 @@
                         <img src="{{ asset($item->icon) }}" alt="{{ $item->name }}">
                     </div>
                     <div class="wrapper-info">
-                        {{-- <a href="{{ route('website.categories.products',$item->slug) }}" class="wrapper-details">{{ $item->name }}</a> --}}
+                        <a href="{{ route('website.categories.products',$item->slug) }}" class="wrapper-details">{{ $item->name }}</a>
                     </div>
                 </div>
                  @empty
@@ -112,13 +112,13 @@
         <div class="container">
             <div class="section-title">
                 <h5>{{ __('website.brands_of_products') }}</h5>
-                {{-- <a href="{{ route('website.brands.index') }}" class="view">{{ __('website.view_all') }}</a> --}}
+                <a href="{{ route('website.brands.index') }}" class="view">{{ __('website.view_all') }}</a>
             </div>
             <div class="brand-section">
                 @forelse ($someBrands as $item)
                 <div class="product-wrapper">
                     <div class="wrapper-img">
-                        {{-- <a href="{{ route('website.brands.products',$item->slug) }}"> --}}
+                        <a href="{{ route('website.brands.products',$item->slug) }}">
                             <img src="{{ asset($item->logo) }}" alt="{{$item->name}}">
                         </a>
                     </div>

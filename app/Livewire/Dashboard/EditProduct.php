@@ -10,23 +10,23 @@ use App\Services\Dashboard\ProductService;
 class EditProduct extends Component
 {
     use WithFileUploads;
-    public $successMessage = '', $errorMessage = '', $currentStep = 1;
+    public $successMessage = '',$errorMessage = '' , $currentStep =1;
     // first setp properites
-    public $name_ar, $name_en, $desc_ar, $desc_en, $small_desc_ar, $small_desc_en, $sku, $available_for, $category_id, $brand_id;
+    public $name_ar,$name_en,$desc_ar,$desc_en,$small_desc_ar,$small_desc_en,$sku,$available_for,$category_id,$brand_id;
     // second setp properites
-    public $has_variants, $has_discount, $manage_stock, $quantity, $price, $discount, $start_discount, $end_discount;
-    public $variants, $quantities, $prices, $variantAttributes = [], $valueRowCount = 0;
+    public $has_variants,$has_discount,$manage_stock,$quantity,$price,$discount,$start_discount,$end_discount;
+    public $variants,$quantities,$prices,$variantAttributes=[],$valueRowCount = 0;
     // third step properites
-    public $images, $newImages;
+    public $images,$newImages;
     public $product;
-    public $categories, $brands, $productId, $productAttributes = [];
+    public $categories , $brands , $productId , $productAttributes = [];
 
     protected ProductService $productService;
     public function boot(ProductService $productService)
     {
         $this->productService = $productService;
     }
-    public function mount($categories, $brands, $productId, $productAttributes)
+    public function mount($categories , $brands , $productId , $productAttributes)
     {
         $this->product           = $this->productService->getProductWithEgarLoading($productId);
         $this->categories        = $categories;
@@ -35,12 +35,12 @@ class EditProduct extends Component
         $this->images            = $this->product->images;
 
         // first step properites
-        $this->name_ar           = $this->product->getTranslation('name', 'ar');
-        $this->name_en           = $this->product->getTranslation('name', 'en');
-        $this->desc_ar           = $this->product->getTranslation('desc', 'ar');
-        $this->desc_en           = $this->product->getTranslation('desc', 'en');
-        $this->small_desc_ar     = $this->product->getTranslation('small_desc', 'ar');
-        $this->small_desc_en     = $this->product->getTranslation('small_desc', 'en');
+        $this->name_ar           = $this->product->getTranslation('name' ,'ar');
+        $this->name_en           = $this->product->getTranslation('name' ,'en');
+        $this->desc_ar           = $this->product->getTranslation('desc' ,'ar');
+        $this->desc_en           = $this->product->getTranslation('desc' ,'en');
+        $this->small_desc_ar     = $this->product->getTranslation('small_desc' ,'ar');
+        $this->small_desc_en     = $this->product->getTranslation('small_desc' ,'en');
         $this->sku               = $this->product->sku;
         $this->available_for     = $this->product->available_for;
         $this->category_id       = $this->product->category_id;
@@ -56,18 +56,20 @@ class EditProduct extends Component
         $this->start_discount          = $this->product->start_discount;
         $this->end_discount            = $this->product->end_discount;
 
-        if ($this->has_variants == 1) {
+        if($this->has_variants==1){
             $this->variants = $this->product->variants;
             $this->valueRowCount = count($this->variants);
-            foreach ($this->variants as $key => $variant) {
-                $this->prices[$key] = $variant->price;
-                $this->quantities[$key] = $variant->stock;
+            foreach($this->variants as $key=>$variant){
+                $this->prices[$key]= $variant->price;
+                $this->quantities[$key]= $variant->stock;
 
-                foreach ($variant->variantAttributes as $variantAttribute) {
+                foreach($variant->variantAttributes as $variantAttribute){
                     $this->variantAttributes[$key][$variantAttribute->attributeValue->attribute_id] = $variantAttribute->attribute_value_id;
                 }
             }
         }
+
+
     }
 
     public function firstStepSubmit()
@@ -139,9 +141,9 @@ class EditProduct extends Component
             array_pop($this->variantAttributes);
         }
     }
-    public function deleteImage($imageId, $key, $file_name)
+    public function deleteImage($imageId , $key , $file_name)
     {
-        $this->productService->deleteProductImage($imageId, $file_name);
+        $this->productService->deleteProductImage($imageId , $file_name);
         unset($this->images[$key]);
     }
     public function deleteNewImage($key)
@@ -180,14 +182,15 @@ class EditProduct extends Component
                 ];
             }
         }
-        $productUpdated = $this->productService->updateProductWithDetails($this->product, $productData, $productVariants, $this->newImages);
+        $productUpdated = $this->productService->updateProductWithDetails($this->product,$productData, $productVariants, $this->newImages);
 
-        if (!$productUpdated) {
+        if(!$productUpdated){
             $this->errorMessage = 'Update Failed';
             $this->currentStep = 1;
         }
         Session::flash('success', 'Product updated successfully');
         return redirect()->route('dashboard.products.index');
+
     }
 
     public function render()

@@ -24,12 +24,16 @@ return new class extends Migration
             $table->decimal('total_price', 8, 2);
 
             $table->text('note');
-            $table->enum('status' , ['pending','completed','cancelled' , 'delivered'])->default('pending');
+            $table->enum('status', ['pending', 'completed', 'cancelled', 'delivered'])->default('pending');
 
             $table->string('country');
             $table->string('governorate');
             $table->string('city');
             $table->string('street');
+
+            $table->string('coupon')->nullable();
+            $table->integer('coupon_discount')->default(0);
+
 
             $table->timestamps();
         });

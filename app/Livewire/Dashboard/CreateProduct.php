@@ -75,7 +75,6 @@ class CreateProduct extends Component
             'category_id'   => ['required', 'exists:categories,id'],
             'brand_id'      => ['required', 'exists:brands,id'],
             'available_for' => ['required', 'date'],
-            'tags'         =>  ['required', 'string'],
         ]);
 
         $this->currentStep = 2;
