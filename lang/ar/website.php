@@ -178,5 +178,10 @@ return [
     'price_range' => 'نطاق السعر',
     'clear_all_filters' => 'مسح جميع الفلاتر',
     'must_login_first' => 'يجب تسجيل الدخول أولاً',
+    'review_form_hint' => 'شاركنا رأيك حول هذا المنتج...',
+    'submit' => 'إرسال',
+    'review_required' => 'حقل التقييم مطلوب.',
+    'review_placeholder' => 'اكتب مراجعتك هنا...',
+    'review_min_hint' => 'يجب أن تحتوي المراجعة على 10 أحرف على الأقل.',
 
 ];

@@ -171,5 +171,10 @@ return [
         'price_range' => 'Price Range',
         'clear_all_filters' => 'Clear All Filters',
         'must_login_first' => 'You must log in first',
+        'review_form_hint' => 'Share your thoughts about this product...',
+        'submit' => 'Submit',
+        'review_required' => 'Review field is required.',
+        'review_placeholder' => 'Write your review here...',
+        'review_min_hint' => 'Your review must be at least 10 characters long.',
 
 ];
