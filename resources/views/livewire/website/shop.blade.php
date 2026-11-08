@@ -144,7 +144,7 @@
 
                     <div class="col-12">
                         <div class="customer-pagination">
-                            {{-- {{ $products->links('vendor.livewire.customer-pagination') }} --}}
+                            {{ $products->links('vendor.livewire.customer-pagination') }}
                         </div>
                     </div>
                 </div>

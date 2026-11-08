@@ -174,7 +174,7 @@
                                                 : $methodLabel;
                                         @endphp
                                         <span>
-                                            {{-- @include('website.partials.payment-method-icon', ['method' => $method]) --}}
+                                            @include('website.partials.payment-method-icon', ['method' => $method])
                                             {{ $methodLabel }}
                                         </span>
                                     @endforeach

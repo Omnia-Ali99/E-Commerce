@@ -57,7 +57,7 @@
 
                         <div class="col-12">
                             <div class="customer-pagination">
-                                {{-- {{ $products->links('website.partials.pagination') }} --}}
+                                {{ $products->links('website.partials.pagination') }}
                             </div>
                         </div>
                     </div>

@@ -27,7 +27,8 @@ class User extends Authenticatable
         'governorate_id',
         'city_id',
         'is_active',
-        'phone'
+        'phone',
+        'image',
     ];
 
     /**

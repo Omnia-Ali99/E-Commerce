@@ -58,8 +58,20 @@ class ProductDetails extends Component
 
     public function addToCart()
     {
+
+        if (!auth('web')->check()) {
+
+            $this->dispatch(
+                'errorMessage',
+                __('website.must_login_first')
+            );
+
+            return;
+        }
+
         $product = $this->product;
         $userId = auth('web')->user()->id;
+
         $cart = Cart::firstOrCreate(['user_id' => $userId]);
 
         if (!$product->has_variants) {

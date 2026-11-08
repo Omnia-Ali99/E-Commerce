@@ -18,6 +18,7 @@
             </div>
         </div>
     </div>
+
     <div class="header-center-section d-none d-lg-block">
         <div class="container">
             <div class="header-center">
@@ -231,14 +232,14 @@
                         <a href="{{ LaravelLocalization::getLocalizedURL('ar', null, [], true) }}">{{ __('website.arabic') }}</a>
                     @endif
                 </div>
-                {{-- <div class="category-dropdown">
+                <div class="category-dropdown">
                     @if ($categories->count() > 0)
                         @include('website.partials.category-tree', [
                             'categories' => $categories,
                             'showImages' => true,
                         ])
                     @endif
-                </div> --}}
+                </div>
             </div>
         </div>
     </nav>
@@ -263,14 +264,14 @@
                         </span>
                     </button>
                     {{-- categories --}}
-                    {{-- <div class="category-dropdown position-absolute" id="subMenu">
+                    <div class="category-dropdown position-absolute" id="subMenu">
                         @if ($categories->count() > 0)
                             @include('website.partials.category-tree', [
                                 'categories' => $categories,
                                 'showImages' => true,
                             ])
                         @endif
-                    </div> --}}
+                    </div>
                 </div>
 
                 <div class="header-nav-menu">
@@ -301,11 +302,11 @@
                                     </svg>
                                 </span>
                             </a>
-                            {{-- <div class="shop-menu">
+                            <div class="shop-menu">
                                 @include('website.partials.shop-mega-menu', [
                                     'categories' => $categories,
                                 ])
-                            </div> --}}
+                            </div>
                         </li>
                         {{-- dynamic pages --}}
                         <li class="customer-pages-nav">
@@ -331,7 +332,7 @@
                                 @if ($pages->count() > 0)
                                     @foreach ($pages as $item)
                                         <li>
-                                            {{-- <a href="{{ route('website.dynamic.page', $item->slug) }}"> --}}
+                                            <a href="{{ route('website.dynamic-page', $item->slug) }}">
                                                 <span class="customer-pages-dropdown__icon">
                                                 </span>
                                                 <span class="customer-pages-dropdown__text">{{ $item->title }}</span>

@@ -13,6 +13,16 @@ data-open="click" data-menu="vertical-menu-modern" data-col="2-columns">
   @yield('content')
   <!-- ////////////////////////////////////////////////////////////////////////////-->
  @include('layouts.dashboard._footer')
+      @if (Auth::guard('admin')->check())
+       <script>
+            layout = "admin";
+            adminId= "{{ auth('admin')->user()->id }}";
+            showOrderRoute = "{{route('dashboard.orders.show',':id')}}";
+            contactIndexRoute= "{{ route('dashboard.contacts.index') }}"
+        </script>
+    @endif
+    <script src="{{ asset('build/assets/app-CNL9jzpr.js') }}"></script>
+
  @include('layouts.dashboard._scripts')
  @stack('js')
 </body>

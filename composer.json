@@ -18,7 +18,9 @@
         "mcamara/laravel-localization": "^2.2",
         "php-flasher/flasher-laravel": "^2.1",
         "predis/predis": "2.0",
+        "pusher/pusher-php-server": "^7.3",
         "spatie/laravel-translatable": "^6.9",
+        "stripe/stripe-php": "^22.1",
         "yajra/laravel-datatables-oracle": "11.0"
     },
     "require-dev": {

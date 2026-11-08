@@ -1,12 +1,14 @@
 <?php
 
-use App\Http\Controllers\Dashboard\{ FaqController, RoleController, AdminController, BrandController, WorldController, CouponController, SettingController, WelcomeController, CategoryController, ContactController, PageController, SliderController, UserController, };
+use App\Http\Controllers\Dashboard\{FaqController, RoleController, AdminController, BrandController, WorldController, CouponController, SettingController, WelcomeController, CategoryController, ContactController, PageController, SliderController, UserController,};
 use App\Http\Controllers\Dashboard\AttributeController;
 use App\Http\Controllers\Dashboard\Auth\AuthController;
 use App\Http\Controllers\Dashboard\Auth\ForgotPasswordController;
 use App\Http\Controllers\Dashboard\Auth\ResetPasswordController;
 use App\Http\Controllers\Dashboard\FaqQuestionController;
+use App\Http\Controllers\Dashboard\OrderController;
 use App\Http\Controllers\Dashboard\ProductController;
+use App\Http\Middleware\MarkNotificationAsRead;
 use Illuminate\Support\Facades\Route;
 use Livewire\Livewire;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -47,21 +49,21 @@ Route::group(
       Route::get('/welcome', [WelcomeController::class, 'index'])->name('welcome');
 
       ##################################### Roles Routes ##################################################
-  
+
       Route::group(['middleware' => 'can:roles'], function () {
         Route::resource('roles', RoleController::class);
       });
 
       ##################################### End Roles  ##################################################
-  
+
       ##################################### Admins Routes ##################################################
-  
+
       Route::group(['middleware' => 'can:admins'], function () {
         Route::resource('admins', AdminController::class);
         Route::get('admins/{id}/status', [AdminController::class, 'changeStatus'])->name('admins.status');
       });
       ##################################### End Admins  ##################################################
-  
+
       ############################ Shipping & Countries ##########################
       Route::group(['middleware' => 'can:global_shipping'], function () {
         Route::controller(WorldController::class)->group(function () {
@@ -79,7 +81,7 @@ Route::group(
         });
       });
       ############################### End Shipping ###############################
-  
+
       ##################################### Categories Routes ##################################################
       Route::group(['middleware' => 'can:categories'], function () {
         Route::resource('categories', CategoryController::class)->except('show');
@@ -87,7 +89,7 @@ Route::group(
           ->name('categories.all');
       });
       ##################################### End Categories  ##################################################
-  
+
       ##################################### Brands Routes ##################################################
       Route::group(['middleware' => 'can:brands'], function () {
         Route::resource('brands', BrandController::class);
@@ -95,7 +97,7 @@ Route::group(
           ->name('brands.all');
       });
       ##################################### End Brands  ##################################################
-  
+
       ##################################### Coupons Routes ##################################################
       Route::group(['middleware' => 'can:coupons'], function () {
         Route::resource('coupons', CouponController::class)->except('show');
@@ -103,7 +105,7 @@ Route::group(
           ->name('coupons.all');
       });
       ##################################### End Coupons  ##################################################
-  
+
       ##################################### Faqs Routes ##################################################
       Route::group(['middleware' => 'can:faqs'], function () {
         Route::resource('faqs', FaqController::class);
@@ -111,7 +113,7 @@ Route::group(
           ->name('faqs.all');
       });
       ##################################### End Faqs  ##################################################
-      
+
       ############################### Faqs Question Routes ##########################
       Route::group(['middleware' => 'can:faqs'], function () {
         Route::get('faq-questions', [FaqQuestionController::class, 'index'])->name('faq.questions.index');
@@ -120,14 +122,14 @@ Route::group(
           ->name('faq.questions.all');
       });
       ############################### End Faqs ######################################
-  
+
       ############################### Settings Routes ###############################
       Route::group(['middleware' => 'can:settings', 'as' => 'settings.'], function () {
         Route::get('settings', [SettingController::class, 'index'])->name('index');
         Route::put('settings/{id}', [SettingController::class, 'update'])->name('update');
       });
       ############################### End Settings ##################################
-  
+
       ############################### Attributes Routes #############################
       Route::group(['middleware' => 'can:attributes'], function () {
         Route::resource('attributes', AttributeController::class);
@@ -135,7 +137,7 @@ Route::group(
           ->name('attributes.all');
       });
       ############################### End attributes ################################
-  
+
       ############################### Products Routes ###############################
       Route::group(['middleware' => 'can:products'], function () {
         Route::resource('products', ProductController::class);
@@ -149,7 +151,7 @@ Route::group(
           ->name('products.variants.delete');
       });
       ############################### End products ################################
-  
+
       ############################### users Routes #############################
       Route::group(['middleware' => 'can:users'], function () {
         Route::resource('users', UserController::class);
@@ -159,16 +161,16 @@ Route::group(
           ->name('users.all');
       });
       ############################### End users ################################
-  
+
 
       ############################### Contact Routes ##############################
       Route::group(['middleware' => 'can:contacts'], function () {
-        Route::get('contacts', [ContactController::class, 'index'])->name('contacts.index');
-
+        Route::get('contacts', [ContactController::class, 'index'])->name('contacts.index')
+          ->middleware(MarkNotificationAsRead::class);
         Route::get('contacts-get/{id}', [ContactController::class, 'getContactById'])->name('contacts.get');
       });
       ############################### End Contacts ################################
-  
+
       ############################### Sliders Routes ##############################
       Route::group(['middleware' => 'can:sliders'], function () {
         Route::get('sliders', [SliderController::class, 'index'])->name('sliders.index');
@@ -177,7 +179,7 @@ Route::group(
         Route::get('remove/{id}', [SliderController::class, 'destroy'])->name('sliders.delete');
       });
       ############################### End Sliders ################################
-  
+
       ############################### Pages Routes #############################
       Route::group(['middleware' => 'can:pages'], function () {
         Route::resource('pages', PageController::class);
@@ -185,7 +187,18 @@ Route::group(
           ->name('pages.all');
       });
       ############################### End pages ################################
-  
+
+      ############################### orders Routes #############################
+      Route::group(['middleware' => 'can:orders'], function () {
+        Route::get('orders',         [OrderController::class, 'index'])->name('orders.index');
+        Route::get('orders/{id}',    [OrderController::class, 'show'])->name('orders.show')
+          ->middleware(MarkNotificationAsRead::class);
+        Route::delete('orders/{id}', [OrderController::class, 'destroy'])->name('orders.destroy');
+        Route::get('orders/markDelivered/{id}', [OrderController::class, 'markDelivered'])->name('orders.markDelivered');
+        Route::get('orders-get-all', [OrderController::class, 'getAll'])->name('orders.all');
+      });
+      ############################### End pages ################################
+
     });
 
     Livewire::setUpdateRoute(function ($handle) {

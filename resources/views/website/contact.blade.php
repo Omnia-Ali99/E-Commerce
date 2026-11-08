@@ -173,7 +173,7 @@
             </div>
             {{-- form question --}}
             <div class="col-lg-6">
-              {{-- @livewire('website.contact-form') --}}
+              @livewire('website.contact-form')
             </div>
           </div>
         </div>

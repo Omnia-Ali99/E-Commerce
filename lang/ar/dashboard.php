@@ -255,7 +255,7 @@ return [
     'product_color' => 'لون المنتج',
     'product_quantity' => 'الكمية',
     'product_price' => 'السعر',
-
+    'notification' => 'الإشعارات',
 
 
 ];

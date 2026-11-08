@@ -8,11 +8,11 @@ use Illuminate\Http\Request;
 
 class DynamicPageController extends Controller
 {
-  public function showDynmicPage($slug)
+  public function showDynamicPage($slug)
     {
         $page = Page::where('slug', $slug)->first();
         if ($page) {
-            return view('website.dynmic-page', compact('page'));
+            return view('website.dynamic-page', compact('page'));
         } else {
             abort('404');
         }

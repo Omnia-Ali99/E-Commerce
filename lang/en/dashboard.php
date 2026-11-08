@@ -294,6 +294,7 @@ return [
     'product_size' => 'Product Size',
     'product_color' => 'Product Color',
     'well_done' => 'Well Done',
+    'notification' => 'Notification',
 
 
 
