@@ -427,7 +427,7 @@
 
 
 
-    <section class="product top-selling">
+    {{-- <section class="product top-selling">
         <div class="container">
             <div class="section-title">
                 <h5>Top Selling Prodcuts</h5>
@@ -1686,7 +1686,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 
     {{-- flash slle products --}}
     @if($homePageProducts['flashProducts']->count()>0)
