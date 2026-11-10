@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Middleware\MarkNotificationAsRead;
+use App\Http\Middleware\SetLangMiddleware;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
@@ -15,6 +16,10 @@ return Application::configure(basePath: dirname(__DIR__))
         then: function () {
             Route::middleware('web')
                 ->group(base_path('routes/dashboard.php'));
+
+            Route::middleware('api')
+                ->prefix('api/v1')
+                ->group(base_path('routes/api.php'));
         },
     )
     ->withMiddleware(function (Middleware $middleware) {
@@ -46,6 +51,9 @@ return Application::configure(basePath: dirname(__DIR__))
             'localeSessionRedirect'   => \Mcamara\LaravelLocalization\Middleware\LocaleSessionRedirect::class,
             'localeCookieRedirect'    => \Mcamara\LaravelLocalization\Middleware\LocaleCookieRedirect::class,
             'localeViewPath'          => \Mcamara\LaravelLocalization\Middleware\LaravelLocalizationViewPath::class,
+        ]);
+        $middleware->api(prepend: [
+            SetLangMiddleware::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {

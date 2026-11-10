@@ -177,4 +177,12 @@ return [
         'review_placeholder' => 'Write your review here...',
         'review_min_hint' => 'Your review must be at least 10 characters long.',
 
+        'user_login_successfully' => 'Logged in successfully.',
+        'user_logout_successfully' => 'Logged out successfully.',
+        'user_not_found' => 'User not found.',
+        'otp_sent_successfully' => 'OTP sent successfully.',
+        'invalid_otp' => 'Invalid OTP.',
+        'password_reset_successfully' => 'Password reset successfully.',
+
+
 ];

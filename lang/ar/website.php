@@ -184,4 +184,12 @@ return [
     'review_placeholder' => 'اكتب مراجعتك هنا...',
     'review_min_hint' => 'يجب أن تحتوي المراجعة على 10 أحرف على الأقل.',
 
+    'user_login_successfully' => 'تم تسجيل الدخول بنجاح.',
+    'user_logout_successfully' => 'تم تسجيل الخروج بنجاح.',
+
+    'user_not_found' => 'المستخدم غير موجود.',
+    'otp_sent_successfully' => 'تم إرسال رمز التحقق بنجاح.',
+    'invalid_otp' => 'رمز التحقق غير صالح.',
+    'password_reset_successfully' => 'تم إعادة تعيين كلمة المرور بنجاح.',
+
 ];
