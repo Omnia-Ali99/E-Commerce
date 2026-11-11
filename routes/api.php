@@ -4,6 +4,8 @@ use App\Http\Controllers\Api\User\AddressController;
 use App\Http\Controllers\Api\User\Auth\LoginController;
 use App\Http\Controllers\Api\User\Auth\Password\PasswordController;
 use App\Http\Controllers\Api\User\Auth\RegisterController;
+use App\Http\Controllers\Api\User\BrandController;
+use App\Http\Controllers\Api\User\CategoryController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -24,11 +26,18 @@ Route::group(
             Route::post('reset-password', 'resetPassword');
         });
 
+        Route::controller(CategoryController::class)->group(function () {
+            Route::get('get-categories', 'getCategories');
+        });
+
+        Route::controller(BrandController::class)->group(function () {
+            Route::get('get-brands', 'getBrands');
+        });
+
         Route::controller(AddressController::class)->group(function () {
             Route::get('get-countries', 'getCountries');
             Route::get('get-governorates/{country_id}', 'getGovernorates');
             Route::get('get-cities/{governorate_id}', 'getCities');
         });
-
     }
 );
