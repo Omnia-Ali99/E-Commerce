@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\User\Auth\Password\PasswordController;
 use App\Http\Controllers\Api\User\Auth\RegisterController;
 use App\Http\Controllers\Api\User\BrandController;
 use App\Http\Controllers\Api\User\CategoryController;
+use App\Http\Controllers\Api\User\DynamicPageController;
 use App\Http\Controllers\Api\User\ProductController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -44,6 +45,10 @@ Route::group(
         Route::prefix('products/')->controller(ProductController::class)->group(function () {
             Route::get('get-flash-products', 'flashProducts');
             Route::get('product-details/{id}', 'productDetails');
+        });
+
+        Route::controller(DynamicPageController::class)->group(function () {
+            Route::get('get-pages', 'getPages');
         });
     }
 );
