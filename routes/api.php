@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\User\Auth\Password\PasswordController;
 use App\Http\Controllers\Api\User\Auth\RegisterController;
 use App\Http\Controllers\Api\User\BrandController;
 use App\Http\Controllers\Api\User\CategoryController;
+use App\Http\Controllers\Api\User\ProductController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -38,6 +39,11 @@ Route::group(
             Route::get('get-countries', 'getCountries');
             Route::get('get-governorates/{country_id}', 'getGovernorates');
             Route::get('get-cities/{governorate_id}', 'getCities');
+        });
+
+        Route::prefix('products/')->controller(ProductController::class)->group(function () {
+            Route::get('get-flash-products', 'flashProducts');
+            Route::get('product-details/{id}', 'productDetails');
         });
     }
 );
