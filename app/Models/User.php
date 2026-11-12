@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Models;
-
+use App\Observers\UserObserver;
+use Illuminate\Database\Eloquent\Attributes\ObservedBy;
+ 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use App\Models\Cart;
 use Carbon\Carbon;
@@ -10,10 +12,12 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
+#[ObservedBy([UserObserver::class])]
+
 class User extends Authenticatable
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
-    use HasFactory, Notifiable , HasApiTokens ;
+    use HasFactory, Notifiable, HasApiTokens;
 
     /**
      * The attributes that are mass assignable.
@@ -62,35 +66,35 @@ class User extends Authenticatable
     // relation
     public function country()
     {
-        return $this->belongsTo(Country::class , 'country_id');
+        return $this->belongsTo(Country::class, 'country_id');
     }
     public function  governorate()
     {
-        return $this->belongsTo(Governorate::class , 'governorate_id');
+        return $this->belongsTo(Governorate::class, 'governorate_id');
     }
     public function  city()
     {
-        return $this->belongsTo(City::class , 'city_id');
+        return $this->belongsTo(City::class, 'city_id');
     }
     public function orders()
     {
-        return $this->hasMany(Order::class , 'user_id');
+        return $this->hasMany(Order::class, 'user_id');
     }
 
     public function wishlists()
     {
-        return $this->hasMany(Wishlist::class , 'user_id');
+        return $this->hasMany(Wishlist::class, 'user_id');
     }
 
     // user & cart
     public function cart()
     {
-        return $this->hasOne(Cart::class , 'user_id');
+        return $this->hasOne(Cart::class, 'user_id');
     }
 
     public function reviews()
     {
-        return $this->hasMany(ProductPreview::class , 'user_id');
+        return $this->hasMany(ProductPreview::class, 'user_id');
     }
 
 
