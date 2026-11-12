@@ -36,6 +36,7 @@ class DatabaseSeeder extends Seeder
             ContactSeeder::class,
             SliderSeeder::class,
             PageSeeder::class,
+            ProductSeeder::class,
 
 
 

@@ -8,6 +8,7 @@ use App\Http\Controllers\Api\User\BrandController;
 use App\Http\Controllers\Api\User\CategoryController;
 use App\Http\Controllers\Api\User\DynamicPageController;
 use App\Http\Controllers\Api\User\ProductController;
+use App\Http\Controllers\Api\User\WishlistController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -49,6 +50,16 @@ Route::group(
 
         Route::controller(DynamicPageController::class)->group(function () {
             Route::get('get-pages', 'getPages');
+        });
+
+        Route::group(['middleware' => 'auth:api'], function () {
+            Route::controller(WishlistController::class)->prefix('wishlist')->group(function () {
+                Route::get('/', 'getAll');
+                Route::post('/', 'add');
+                Route::delete('/{id}', 'remove');
+                Route::delete('/delete/all', 'clear');
+                Route::get('/count', 'wishlistCount');
+            });
         });
     }
 );
