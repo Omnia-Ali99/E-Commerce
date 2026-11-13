@@ -76,9 +76,9 @@
                                             </tr>
                                         </thead>
 
-                                        <body>
+                                        <tbody>
                                             {{-- empty --}}
-                                        </body>
+                                        </tbody>
 
                                     </table>
 
@@ -143,8 +143,8 @@
                     name: 'is_active',
                 },
                 {
-                    data: 'time_used',
-                    name: 'time_used',
+                    data: 'limit',
+                    name: 'limit',
 
                 },
                 {
@@ -197,9 +197,28 @@
             table.rowReorder.enable();
         });
 
+        function clearCouponErrors() {
+            $('#error_list').empty();
+            $('#error_div').hide();
+        }
+
+        function clearEditCouponErrors() {
+            $('#error_list_edit').empty();
+            $('#error_div_edit').hide();
+        }
+
+        $('#couponModal').on('show.bs.modal hidden.bs.modal', function() {
+            clearCouponErrors();
+        });
+
+        $('#editCouponModal').on('show.bs.modal hidden.bs.modal', function() {
+            clearEditCouponErrors();
+        });
+
         // Create Coupon Using Ajax
         $('#createCoupon').on('submit', function(e) {
             e.preventDefault();
+            clearCouponErrors();
             var currentPage = $('#yajra_table').DataTable().page(); // get the current page number
             $.ajax({
                 url: "{{ route('dashboard.coupons.store') }}",
@@ -212,6 +231,7 @@
                         $('#createCoupon')[0].reset();
                         $('#yajra_table').DataTable().page(currentPage).draw(false);
                         $('#couponModal').modal('hide');
+                        clearCouponErrors();
                         Swal.fire({
                             position: "top-center",
                             icon: "success",
@@ -232,6 +252,7 @@
                 },
                 error: function(data) {
                     if (data.responseJSON.errors) {
+                        clearCouponErrors();
                         $.each(data.responseJSON.errors, function(key, value) {
 
                             $('#error_list').append('<li>' + value[0] + '</li>');
@@ -246,6 +267,7 @@
         $(document).on('click', '.edit_coupon', function(e) {
             e.preventDefault();
 
+            clearEditCouponErrors();
 
             $('#coupon_id').val($(this).attr('coupon-id'));
             $('#coupon_code').val($(this).attr('coupon-code'));
@@ -266,6 +288,7 @@
         // Update Coupon Using Ajax
         $('#updateCoupon').on('submit', function(e) {
             e.preventDefault();
+            clearEditCouponErrors();
             var currentPage = $('#yajra_table').DataTable().page(); // get the current page number
             var coupon_id = $('#coupon_id').val();
             $.ajax({
@@ -278,6 +301,7 @@
                     if (data.status == 'success') {
                         $('#yajra_table').DataTable().page(currentPage).draw(false);
                         $('#editCouponModal').modal('hide');
+                        clearEditCouponErrors();
                         Swal.fire({
                             position: "top-center",
                             icon: "success",
@@ -298,6 +322,7 @@
                 },
                 error: function(data) {
                     if (data.responseJSON.errors) {
+                        clearEditCouponErrors();
                         $.each(data.responseJSON.errors, function(key, value) {
 
                             $('#error_list_edit').append('<li>' + value[0] + '</li>');
