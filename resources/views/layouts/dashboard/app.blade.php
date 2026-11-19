@@ -21,7 +21,7 @@ data-open="click" data-menu="vertical-menu-modern" data-col="2-columns">
             contactIndexRoute= "{{ route('dashboard.contacts.index') }}"
         </script>
     @endif
-    <script src="{{ asset('build/assets/app-CNL9jzpr.js') }}"></script>
+    <script src="{{ asset('build/assets/app-_3K7Yg7S.js') }}"></script>
 
  @include('layouts.dashboard._scripts')
  @stack('js')

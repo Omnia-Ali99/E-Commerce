@@ -28,7 +28,7 @@ if (layout == 'admin') {
                                             </div>
                                         </a>`);
         }
-        if(event.type == 'ContactNotification'){
+      else if(event.type == 'ContactNotification'){
             let url = contactIndexRoute + '?notify_admin=' + event.id;
             $('#pushRealTime').prepend(`<a
                                             href="${url}">
